@@ -1,0 +1,1790 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CYBER CREATION | Official Gaming &amp; Streamer Hub</title>
+  <meta name="description" content="CYBER CREATION — The official gaming, GTA V FiveM Roleplay, and live streaming hub founded by Rakibul Saikat Leo. Streaming on Facebook Gaming & Kick.com." />
+
+  <!-- Open Graph / Social Meta Tags -->
+  <meta property="og:title" content="CYBER CREATION | Official Gaming &amp; Streamer Hub" />
+  <meta property="og:description" content="Official hub of CYBER CREATION by Rakibul Saikat Leo — GTA V FiveM RP, Live Streams, Z-Core Bangladesh Giveaways, Setup &amp; Lifestyle." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#07080f" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts: Orbitron & Rajdhani (Cyber Gaming Display) + Inter & Plus Jakarta Sans (Clean Body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet" />
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Tailwind Theme Configuration -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            obsidian: '#07080f',
+            obsidianLight: '#0f1221',
+            neonCyan: '#00f0ff',
+            neonViolet: '#8b5cf6',
+            neonCrimson: '#ff2a6d',
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
+            display: ['Orbitron', 'sans-serif'],
+            hud: ['Rajdhani', 'sans-serif'],
+          },
+          boxShadow: {
+            'glow-cyan': '0 0 28px rgba(0, 240, 255, 0.32)',
+            'glow-violet': '0 0 28px rgba(139, 92, 246, 0.34)',
+            'glow-crimson': '0 0 26px rgba(255, 42, 109, 0.36)',
+            'glass-card': '0 20px 50px -16px rgba(0, 0, 0, 0.82)',
+          },
+          animation: {
+            'float-hud': 'floatHud 6s ease-in-out infinite',
+            'grid-move': 'gridMove 24s linear infinite',
+            'pulse-glow': 'pulse 4.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+          },
+          keyframes: {
+            floatHud: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-9px)' },
+            },
+            gridMove: {
+              '0%': { backgroundPosition: '0px 0px' },
+              '100%': { backgroundPosition: '48px 48px' },
+            }
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Custom Cyber-Neon Styling, Glassmorphism & Reveal Transitions -->
+  <style>
+    :root {
+      color-scheme: dark;
+    }
+
+    body {
+      background-color: #07080f;
+      color: #f1f5f9;
+      font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* Animated Subtle Cyber Grid Background */
+    .cyber-grid-bg {
+      background-image:
+        linear-gradient(to right, rgba(0, 240, 255, 0.06) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(139, 92, 246, 0.06) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: radial-gradient(ellipse 85% 70% at 50% 20%, #000 50%, transparent 100%);
+      -webkit-mask-image: radial-gradient(ellipse 85% 70% at 50% 20%, #000 50%, transparent 100%);
+    }
+
+    /* Glassmorphic Card Surface */
+    .cyber-glass {
+      background: linear-gradient(145deg, rgba(17, 21, 40, 0.78), rgba(9, 11, 22, 0.9));
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid rgba(255, 255, 255, 0.085);
+    }
+
+    .cyber-glass-interactive {
+      transition: transform 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease;
+    }
+
+    .cyber-glass-interactive:hover {
+      border-color: rgba(0, 240, 255, 0.45);
+      box-shadow: 0 16px 42px -14px rgba(0, 240, 255, 0.24);
+    }
+
+    /* Signature Cyber Neon Text Gradient */
+    .text-neon-gradient {
+      background: linear-gradient(95deg, #00f0ff 0%, #60a5fa 32%, #8b5cf6 68%, #ff2a6d 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Custom Cyber Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #07080f;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(180deg, #00f0ff, #8b5cf6, #ff2a6d);
+      border-radius: 9999px;
+    }
+
+    /* Scroll Reveal Motion */
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.65s ease-out, transform 0.65s ease-out;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Gallery Card Hide Utility */
+    .content-card.is-hidden {
+      display: none;
+    }
+  </style>
+</head>
+
+<body class="bg-obsidian text-slate-100 antialiased selection:bg-[#00f0ff]/25 selection:text-cyan-100 relative">
+
+  <!-- =======================================================================
+       AMBIENT CYBER-NEON BACKGROUND OVERLAY
+       ======================================================================= -->
+  <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden" aria-hidden="true">
+    <div class="absolute inset-0 cyber-grid-bg animate-grid-move"></div>
+    <div class="absolute -top-40 -left-24 w-96 h-96 md:w-[560px] md:h-[560px] rounded-full bg-[#00f0ff]/12 blur-[140px] animate-pulse-glow"></div>
+    <div class="absolute top-1/3 -right-28 w-96 h-96 md:w-[520px] md:h-[520px] rounded-full bg-[#8b5cf6]/15 blur-[145px] animate-pulse-glow"></div>
+    <div class="absolute bottom-10 left-1/4 w-80 h-80 md:w-[440px] md:h-[440px] rounded-full bg-[#ff2a6d]/10 blur-[140px]"></div>
+  </div>
+
+  <!-- =======================================================================
+       1. STICKY CYBER NAVBAR
+       ======================================================================= -->
+  <header id="navbar" class="fixed top-0 inset-x-0 z-50 bg-obsidian/75 backdrop-blur-xl border-b border-white/10 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 sm:h-20 gap-3">
+
+        <!-- Main Brand Logo: Glowing "CC" Emblem + "CYBER CREATION" -->
+        <a href="#home" class="flex items-center gap-3 group focus:outline-none min-w-0">
+          <div class="relative w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-br from-[#00f0ff] via-[#8b5cf6] to-[#ff2a6d] p-[1.5px] shadow-glow-cyan group-hover:scale-105 transition-transform shrink-0">
+            <div class="w-full h-full rounded-[10px] bg-obsidian flex items-center justify-center">
+              <span class="font-display font-black text-sm tracking-wider text-neon-gradient">CC</span>
+            </div>
+          </div>
+          <div class="flex flex-col min-w-0">
+            <span class="font-display font-black text-sm sm:text-base lg:text-lg tracking-[0.12em] text-white group-hover:text-[#00f0ff] transition-colors truncate">
+              CYBER CREATION
+            </span>
+            <span class="font-hud text-[11px] uppercase tracking-[0.22em] text-cyan-300/80 hidden sm:block">
+              Gaming &amp; Live Streams
+            </span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav class="hidden lg:flex items-center gap-1" aria-label="Primary Navigation">
+          <a href="#home" class="nav-link px-3.5 py-2 rounded-xl text-sm font-semibold text-slate-300 hover:text-[#00f0ff] hover:bg-white/5 transition-all">Home</a>
+          <a href="#history" class="nav-link px-3.5 py-2 rounded-xl text-sm font-semibold text-slate-300 hover:text-[#00f0ff] hover:bg-white/5 transition-all">History</a>
+          <a href="#content" class="nav-link px-3.5 py-2 rounded-xl text-sm font-semibold text-slate-300 hover:text-[#00f0ff] hover:bg-white/5 transition-all">Content</a>
+          <a href="#setup" class="nav-link px-3.5 py-2 rounded-xl text-sm font-semibold text-slate-300 hover:text-[#00f0ff] hover:bg-white/5 transition-all">My Stuff</a>
+          <a href="#schedule" class="nav-link px-3.5 py-2 rounded-xl text-sm font-semibold text-slate-300 hover:text-[#00f0ff] hover:bg-white/5 transition-all">Schedule</a>
+          <a href="#contact" class="nav-link px-3.5 py-2 rounded-xl text-sm font-semibold text-slate-300 hover:text-[#00f0ff] hover:bg-white/5 transition-all">Contact</a>
+        </nav>
+
+        <!-- Right Controls: Watch Live Button + Mobile Menu Toggle -->
+        <div class="flex items-center gap-2.5 shrink-0">
+          <!-- EASY EDIT: Change href to your Facebook Gaming or Kick live stream URL if you want direct open -->
+          <a href="#schedule" class="inline-flex items-center gap-2 px-3.5 sm:px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#ff2a6d] via-[#8b5cf6] to-[#00f0ff] text-white font-display font-bold text-[11px] sm:text-xs tracking-wider shadow-glow-crimson hover:shadow-glow-cyan hover:brightness-110 active:scale-95 transition-all">
+            <span class="relative flex h-2.5 w-2.5">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-85"></span>
+              <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-white"></span>
+            </span>
+            <span>WATCH LIVE</span>
+          </a>
+
+          <!-- Mobile Hamburger Toggle -->
+          <button id="mobileMenuBtn" type="button" aria-label="Toggle Menu" aria-expanded="false" class="lg:hidden inline-flex items-center justify-center w-11 h-11 rounded-xl cyber-glass text-slate-200 hover:text-[#00f0ff] focus:outline-none">
+            <i id="menuOpenIcon" data-lucide="menu" class="w-5 h-5"></i>
+            <i id="menuCloseIcon" data-lucide="x" class="w-5 h-5 hidden"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobileMenu" class="hidden lg:hidden border-t border-white/10 bg-obsidian/95 backdrop-blur-2xl">
+      <nav class="max-w-7xl mx-auto px-4 py-4 flex flex-col gap-1.5" aria-label="Mobile Navigation">
+        <a href="#home" class="mobile-nav-link px-4 py-3 rounded-xl text-sm font-semibold text-slate-200 hover:bg-[#00f0ff]/10 hover:text-[#00f0ff] transition-colors flex items-center justify-between">
+          <span class="flex items-center gap-3"><i data-lucide="home" class="w-4 h-4 text-[#00f0ff]"></i> Home</span>
+          <i data-lucide="chevron-right" class="w-4 h-4 text-slate-500"></i>
+        </a>
+        <a href="#history" class="mobile-nav-link px-4 py-3 rounded-xl text-sm font-semibold text-slate-200 hover:bg-[#00f0ff]/10 hover:text-[#00f0ff] transition-colors flex items-center justify-between">
+          <span class="flex items-center gap-3"><i data-lucide="history" class="w-4 h-4 text-[#8b5cf6]"></i> History</span>
+          <i data-lucide="chevron-right" class="w-4 h-4 text-slate-500"></i>
+        </a>
+        <a href="#content" class="mobile-nav-link px-4 py-3 rounded-xl text-sm font-semibold text-slate-200 hover:bg-[#00f0ff]/10 hover:text-[#00f0ff] transition-colors flex items-center justify-between">
+          <span class="flex items-center gap-3"><i data-lucide="clapperboard" class="w-4 h-4 text-[#00f0ff]"></i> Content</span>
+          <i data-lucide="chevron-right" class="w-4 h-4 text-slate-500"></i>
+        </a>
+        <a href="#setup" class="mobile-nav-link px-4 py-3 rounded-xl text-sm font-semibold text-slate-200 hover:bg-[#00f0ff]/10 hover:text-[#00f0ff] transition-colors flex items-center justify-between">
+          <span class="flex items-center gap-3"><i data-lucide="cpu" class="w-4 h-4 text-[#ff2a6d]"></i> My Stuff</span>
+          <i data-lucide="chevron-right" class="w-4 h-4 text-slate-500"></i>
+        </a>
+        <a href="#schedule" class="mobile-nav-link px-4 py-3 rounded-xl text-sm font-semibold text-slate-200 hover:bg-[#00f0ff]/10 hover:text-[#00f0ff] transition-colors flex items-center justify-between">
+          <span class="flex items-center gap-3"><i data-lucide="calendar-clock" class="w-4 h-4 text-[#00f0ff]"></i> Schedule &amp; Partner</span>
+          <i data-lucide="chevron-right" class="w-4 h-4 text-slate-500"></i>
+        </a>
+        <a href="#contact" class="mobile-nav-link px-4 py-3 rounded-xl text-sm font-semibold text-slate-200 hover:bg-[#00f0ff]/10 hover:text-[#00f0ff] transition-colors flex items-center justify-between">
+          <span class="flex items-center gap-3"><i data-lucide="send" class="w-4 h-4 text-[#8b5cf6]"></i> Contact</span>
+          <i data-lucide="chevron-right" class="w-4 h-4 text-slate-500"></i>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- =======================================================================
+       MAIN CONTENT
+       ======================================================================= -->
+  <main class="relative z-10 pt-20">
+
+    <!-- =====================================================================
+         2. HERO SECTION
+         ===================================================================== -->
+    <section id="home" class="relative pt-12 pb-16 sm:pt-16 sm:pb-24 lg:pt-24 lg:pb-28">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+
+          <!-- Left Column: CYBER CREATION Main Brand Showcase -->
+          <div class="lg:col-span-7 text-center lg:text-left">
+
+            <!-- Live / Streamer Pill Badge -->
+            <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full cyber-glass border border-[#00f0ff]/35 mb-6 shadow-[0_0_24px_rgba(0,240,255,0.16)]">
+              <span class="relative flex h-2.5 w-2.5">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#ff2a6d] opacity-80"></span>
+                <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#ff2a6d]"></span>
+              </span>
+              <span class="font-hud font-bold text-xs sm:text-sm tracking-[0.18em] text-cyan-200 uppercase">
+                LIVE STREAMER &bull; CONTENT CREATOR
+              </span>
+            </div>
+
+            <!-- HUGE Glowing Brand H1 Headline: CYBER CREATION -->
+            <h1 class="font-display font-black text-4xl sm:text-6xl lg:text-6xl xl:text-7xl tracking-tight leading-[1.04] mb-4">
+              <span class="text-white drop-shadow-[0_0_24px_rgba(255,255,255,0.18)]">CYBER</span>
+              <span class="block text-neon-gradient drop-shadow-[0_0_34px_rgba(0,240,255,0.34)]">CREATION</span>
+            </h1>
+
+            <!-- Personal Creator Tag right below H1 -->
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-xl bg-white/[0.04] border border-[#8b5cf6]/35 mb-6">
+              <i data-lucide="user-check" class="w-4 h-4 text-[#00f0ff]"></i>
+              <p class="font-hud font-bold text-base sm:text-lg tracking-wide text-slate-100">
+                The Official Hub of <span class="text-[#00f0ff]">Rakibul Saikat Leo</span>
+              </p>
+            </div>
+
+            <!-- Short Punchy Tagline -->
+            <p class="text-slate-400 text-sm sm:text-base lg:text-lg max-w-2xl mx-auto lg:mx-0 leading-relaxed mb-8">
+              I stream <span class="text-slate-100 font-semibold">multiple games</span> live and upload the best <span class="text-cyan-300 font-semibold">clips &amp; highlights</span> from every session. Jump into the content below and catch up.
+            </p>
+
+            <!-- Primary CTA Buttons -->
+            <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+              <a href="#content" class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-2xl bg-gradient-to-r from-[#00f0ff] via-sky-500 to-[#8b5cf6] text-obsidian font-display font-extrabold text-xs sm:text-sm tracking-wider shadow-glow-cyan hover:shadow-glow-violet hover:-translate-y-0.5 active:translate-y-0 transition-all">
+                <i data-lucide="play-circle" class="w-4 h-4"></i>
+                <span>EXPLORE CONTENT</span>
+              </a>
+              <a href="#contact" class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-2xl cyber-glass border border-[#8b5cf6]/45 text-slate-100 font-display font-bold text-xs sm:text-sm tracking-wider hover:bg-[#8b5cf6]/15 hover:border-[#00f0ff]/60 hover:-translate-y-0.5 active:translate-y-0 transition-all">
+                <i data-lucide="handshake" class="w-4 h-4 text-[#ff2a6d]"></i>
+                <span>CONNECT / SPONSOR</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Right Column: Interactive Creator HUD Card -->
+          <div class="lg:col-span-5 flex justify-center">
+            <div class="relative w-full max-w-md animate-float-hud">
+              <!-- Outer Neon Halo -->
+              <div class="absolute -inset-1 rounded-[2rem] bg-gradient-to-br from-[#00f0ff]/40 via-[#8b5cf6]/35 to-[#ff2a6d]/40 blur-xl opacity-75"></div>
+
+              <!-- HUD Card Body -->
+              <div class="relative cyber-glass rounded-[28px] p-6 sm:p-7 border border-white/15 shadow-glass-card overflow-hidden">
+
+                <!-- Cyber Corner Brackets -->
+                <div class="absolute top-3.5 left-3.5 w-4 h-4 border-t-2 border-l-2 border-[#00f0ff]/80 rounded-tl"></div>
+                <div class="absolute top-3.5 right-3.5 w-4 h-4 border-t-2 border-r-2 border-[#8b5cf6]/80 rounded-tr"></div>
+                <div class="absolute bottom-3.5 left-3.5 w-4 h-4 border-b-2 border-l-2 border-[#ff2a6d]/80 rounded-bl"></div>
+                <div class="absolute bottom-3.5 right-3.5 w-4 h-4 border-b-2 border-r-2 border-[#00f0ff]/80 rounded-br"></div>
+
+                <!-- HUD Top Bar with Animated Status -->
+                <div class="flex items-center justify-between text-xs font-hud tracking-wider text-slate-400 mb-5">
+                  <span class="inline-flex items-center gap-1.5 text-[#00f0ff] font-bold">
+                    <i data-lucide="radio" class="w-3.5 h-3.5 animate-pulse"></i>
+                    CREATOR HUD // CC-01
+                  </span>
+                  <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-500/15 border border-emerald-400/40 text-emerald-300 font-bold text-[11px]">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                    ONLINE HUB
+                  </span>
+                </div>
+
+                <!-- Cyber Creation Emblem + Handle Copy Button -->
+                <!-- EASY EDIT: To use your own profile photo, replace the inner "CC" div with an <img> inside this circle -->
+                <div class="flex flex-col items-center text-center mb-5">
+                  <div class="relative w-28 h-28 mb-3.5 flex items-center justify-center">
+                    <div class="absolute inset-0 rounded-full border-2 border-dashed border-[#00f0ff]/45 animate-[spin_22s_linear_infinite]"></div>
+                    <div class="absolute inset-2 rounded-full border border-[#8b5cf6]/55 animate-[spin_15s_linear_infinite_reverse]"></div>
+                    <div class="relative w-[88px] h-[88px] rounded-full overflow-hidden border-2 border-[#00f0ff]/70 shadow-glow-cyan">
+                      <img src="data:image/jpeg;base64,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" alt="Rakibul Saikat Leo" class="w-full h-full object-cover" />
+                    </div>
+                  </div>
+
+                  <h2 class="font-display font-extrabold text-lg text-white tracking-wider">CYBER CREATION</h2>
+
+                  <!-- One-Click Copy Handle Button -->
+                  <button id="copyHandleBtn" type="button" data-handle="@CyberCreation" title="Click to copy handle"
+                    class="mt-2.5 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.06] hover:bg-[#00f0ff]/15 border border-white/15 hover:border-[#00f0ff]/55 text-xs font-mono text-cyan-200 transition-all active:scale-95">
+                    <span class="text-[#00f0ff] font-bold">@CyberCreation</span>
+                    <i data-lucide="copy" class="w-3.5 h-3.5 text-slate-400"></i>
+                  </button>
+                </div>
+
+                <!-- HUD Specs Matrix -->
+                <div class="space-y-2.5 text-xs">
+                  <!-- Real Name Highlight Row -->
+                  <div class="rounded-2xl bg-gradient-to-r from-[#00f0ff]/10 via-[#8b5cf6]/10 to-transparent border border-[#00f0ff]/30 px-4 py-3 flex items-center justify-between gap-2">
+                    <span class="text-[11px] uppercase tracking-wider text-slate-400 font-hud font-bold flex items-center gap-1.5">
+                      <i data-lucide="badge-check" class="w-4 h-4 text-[#00f0ff]"></i> Real Name
+                    </span>
+                    <span class="font-display font-bold text-white text-xs sm:text-sm">Rakibul Saikat Leo</span>
+                  </div>
+
+                  <!-- 2x2 Info Grid -->
+                  <div class="grid grid-cols-2 gap-2.5">
+                    <div class="rounded-2xl bg-white/[0.04] border border-white/10 p-3 hover:border-[#00f0ff]/35 transition-colors">
+                      <div class="flex items-center gap-1.5 text-[10px] uppercase tracking-wider text-slate-400 mb-1">
+                        <i data-lucide="map-pin" class="w-3.5 h-3.5 text-[#ff2a6d]"></i> Location
+                      </div>
+                      <p class="font-hud font-bold text-sm text-white truncate">Bangladesh</p>
+                    </div>
+
+                    <div class="rounded-2xl bg-white/[0.04] border border-white/10 p-3 hover:border-[#8b5cf6]/35 transition-colors">
+                      <div class="flex items-center gap-1.5 text-[10px] uppercase tracking-wider text-slate-400 mb-1">
+                        <i data-lucide="gamepad-2" class="w-3.5 h-3.5 text-[#00f0ff]"></i> Main Game
+                      </div>
+                      <p class="font-hud font-bold text-sm text-white truncate">Paladins</p>
+                    </div>
+
+                    <div class="rounded-2xl bg-white/[0.04] border border-white/10 p-3 hover:border-[#00f0ff]/35 transition-colors">
+                      <div class="flex items-center gap-1.5 text-[10px] uppercase tracking-wider text-slate-400 mb-1">
+                        <i data-lucide="tv" class="w-3.5 h-3.5 text-[#8b5cf6]"></i> Platform
+                      </div>
+                      <p class="font-hud font-bold text-sm text-white">Facebook, YouTube, Kick</p>
+                    </div>
+
+                    <div class="rounded-2xl bg-white/[0.04] border border-white/10 p-3 hover:border-[#ff2a6d]/35 transition-colors">
+                      <div class="flex items-center gap-1.5 text-[10px] uppercase tracking-wider text-slate-400 mb-1">
+                        <i data-lucide="award" class="w-3.5 h-3.5 text-emerald-400"></i> Partner
+                      </div>
+                      <p class="font-hud font-bold text-sm text-white truncate">Z-Core Bangladesh</p>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         3. ABOUT & GAMING HISTORY TIMELINE
+         ===================================================================== -->
+    <section id="history" class="py-16 sm:py-24 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- Section Header -->
+        <div class="text-center max-w-2xl mx-auto mb-14 reveal">
+          <span class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#8b5cf6]/15 border border-[#8b5cf6]/40 text-violet-300 text-xs font-display font-semibold uppercase tracking-widest mb-3">
+            <i data-lucide="sparkles" class="w-3.5 h-3.5"></i> Origin Story
+          </span>
+          <h2 class="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl text-white tracking-tight">
+            About &amp; Gaming <span class="text-neon-gradient">History</span>
+          </h2>
+          <p class="text-slate-400 mt-3 text-sm sm:text-base">
+            From early PC gaming adventures to building CYBER CREATION, diving into GTA V FiveM RP, and streaming across platforms.
+          </p>
+        </div>
+
+        <div class="grid lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+
+          <!-- Left Sticky Creator Intro Bio -->
+          <div class="lg:col-span-4 reveal">
+            <div class="cyber-glass rounded-3xl p-6 sm:p-7 border border-[#00f0ff]/25 shadow-glass-card lg:sticky lg:top-28">
+              <div class="flex items-center gap-3.5 mb-5">
+                <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#00f0ff] to-[#8b5cf6] flex items-center justify-center text-obsidian shadow-glow-cyan shrink-0">
+                  <i data-lucide="user-round" class="w-6 h-6"></i>
+                </div>
+                <div>
+                  <h3 class="font-display font-bold text-lg text-white">Behind the Screen</h3>
+                  <p class="font-hud text-xs text-[#00f0ff] uppercase tracking-[0.18em] font-bold">Rakibul Saikat Leo</p>
+                </div>
+              </div>
+
+              <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-4">
+                Hey squad! I'm <strong class="text-white">Rakibul Saikat Leo</strong>, the gamer, live streamer, and creative mind behind <strong class="text-[#00f0ff]">CYBER CREATION</strong>.
+              </p>
+              <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                What started as a lifelong love for PC games and tech grew into a full-fledged Bangladeshi gaming community. CYBER CREATION is where all my worlds collide.
+              </p>
+
+              <!-- Quick Tags -->
+              <div class="flex flex-wrap gap-2 pt-4 border-t border-white/10">
+                <span class="px-3 py-1.5 rounded-xl bg-[#00f0ff]/10 border border-[#00f0ff]/30 text-cyan-200 text-xs font-semibold">Founder of Cyber Creation</span>
+                <span class="px-3 py-1.5 rounded-xl bg-[#8b5cf6]/10 border border-[#8b5cf6]/30 text-violet-200 text-xs font-semibold">FiveM RP &amp; Qbox</span>
+                <span class="px-3 py-1.5 rounded-xl bg-[#ff2a6d]/10 border border-[#ff2a6d]/30 text-rose-200 text-xs font-semibold">Facebook, YouTube, Kick</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Interactive Vertical Timeline (5 Milestones) -->
+          <div class="lg:col-span-8 reveal">
+            <div class="relative pl-8 sm:pl-11 space-y-6 before:content-[''] before:absolute before:left-3 sm:before:left-4 before:top-4 before:bottom-4 before:w-[2px] before:bg-gradient-to-b before:from-[#00f0ff] before:via-[#8b5cf6] before:to-[#ff2a6d]">
+
+              <!-- Milestone 1 -->
+              <article class="relative cyber-glass cyber-glass-interactive rounded-2xl p-6 group">
+                <span class="absolute -left-[31px] sm:-left-[39px] top-6 w-5 h-5 rounded-full bg-obsidian border-2 border-[#00f0ff] shadow-glow-cyan flex items-center justify-center">
+                  <span class="w-2 h-2 rounded-full bg-[#00f0ff]"></span>
+                </span>
+                <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                  <span class="px-3 py-1 rounded-lg bg-[#00f0ff]/15 text-[#00f0ff] font-display text-[11px] font-bold tracking-wider">STAGE 01</span>
+                  <span class="text-xs text-slate-400 flex items-center gap-1.5"><i data-lucide="cpu" class="w-3.5 h-3.5 text-[#00f0ff]"></i> Childhood Spark</span>
+                </div>
+                <h3 class="font-display font-bold text-lg sm:text-xl text-white group-hover:text-[#00f0ff] transition-colors mb-2">
+                  Early Gaming Roots
+                </h3>
+                <p class="text-slate-400 text-sm sm:text-base leading-relaxed">
+                  Hooked early on <strong class="text-slate-200">classic PC gaming, immersive story-driven worlds, and a deep childhood curiosity for tech</strong>—building the passion for hardware, graphics, and storytelling that drives everything today.
+                </p>
+              </article>
+
+              <!-- Milestone 2 -->
+              <article class="relative cyber-glass cyber-glass-interactive rounded-2xl p-6 group">
+                <span class="absolute -left-[31px] sm:-left-[39px] top-6 w-5 h-5 rounded-full bg-obsidian border-2 border-[#8b5cf6] shadow-glow-violet flex items-center justify-center">
+                  <span class="w-2 h-2 rounded-full bg-[#8b5cf6]"></span>
+                </span>
+                <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                  <span class="px-3 py-1 rounded-lg bg-[#8b5cf6]/15 text-violet-300 font-display text-[11px] font-bold tracking-wider">STAGE 02</span>
+                  <span class="text-xs text-slate-400 flex items-center gap-1.5"><i data-lucide="sparkles" class="w-3.5 h-3.5 text-[#8b5cf6]"></i> Brand Genesis</span>
+                </div>
+                <h3 class="font-display font-bold text-lg sm:text-xl text-white group-hover:text-violet-300 transition-colors mb-2">
+                  Launching Cyber Creation
+                </h3>
+                <p class="text-slate-400 text-sm sm:text-base leading-relaxed">
+                  Launched the <strong class="text-slate-200">CYBER CREATION</strong> gaming page from the ground up and building a welcoming Bangladeshi gamer community.
+                </p>
+              </article>
+
+              <!-- Milestone 3 -->
+              <article class="relative cyber-glass cyber-glass-interactive rounded-2xl p-6 group">
+                <span class="absolute -left-[31px] sm:-left-[39px] top-6 w-5 h-5 rounded-full bg-obsidian border-2 border-[#00f0ff] shadow-glow-cyan flex items-center justify-center">
+                  <span class="w-2 h-2 rounded-full bg-[#00f0ff]"></span>
+                </span>
+                <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                  <span class="px-3 py-1 rounded-lg bg-[#00f0ff]/15 text-[#00f0ff] font-display text-[11px] font-bold tracking-wider">STAGE 03</span>
+                  <span class="text-xs text-slate-400 flex items-center gap-1.5"><i data-lucide="terminal" class="w-3.5 h-3.5 text-[#00f0ff]"></i> Los Santos &amp; Qbox</span>
+                </div>
+                <h3 class="font-display font-bold text-lg sm:text-xl text-white group-hover:text-[#00f0ff] transition-colors mb-2">
+                  GTA V FiveM Roleplay Era
+                </h3>
+                <p class="text-slate-400 text-sm sm:text-base leading-relaxed">
+                  Dived deep into top Bangladeshi RP servers like <strong class="text-slate-200">Generation Roleplay (GRP)</strong>, <strong class="text-slate-200">Metroverse Roleplay</strong>, <strong class="text-slate-200">Bangladesh Premium Roleplay</strong>, and <strong class="text-slate-200">Soulcity EchoRP</strong>, delivering unforgettable character arcs on livestream while experimenting behind the scenes with the modern <strong class="text-cyan-300">Qbox server framework</strong>.
+                </p>
+              </article>
+
+              <!-- Milestone 4 -->
+              <article class="relative cyber-glass cyber-glass-interactive rounded-2xl p-6 group">
+                <span class="absolute -left-[31px] sm:-left-[39px] top-6 w-5 h-5 rounded-full bg-obsidian border-2 border-[#ff2a6d] shadow-glow-crimson flex items-center justify-center">
+                  <span class="w-2 h-2 rounded-full bg-[#ff2a6d]"></span>
+                </span>
+                <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                  <span class="px-3 py-1 rounded-lg bg-[#ff2a6d]/15 text-rose-300 font-display text-[11px] font-bold tracking-wider">STAGE 04</span>
+                  <span class="text-xs text-slate-400 flex items-center gap-1.5"><i data-lucide="handshake" class="w-3.5 h-3.5 text-[#ff2a6d]"></i> Official Collab</span>
+                </div>
+                <h3 class="font-display font-bold text-lg sm:text-xl text-white group-hover:text-rose-300 transition-colors mb-2">
+                  Z-Core Bangladesh Partnership
+                </h3>
+                <p class="text-slate-400 text-sm sm:text-base leading-relaxed">
+                  Partnered officially with <strong class="text-slate-200">Z-Core Bangladesh</strong> to bring exclusive stream promotions, Discord drops, and epic community giveaways directly to CYBER CREATION supporters.
+                </p>
+              </article>
+
+              <!-- Milestone 5 -->
+              <article class="relative cyber-glass cyber-glass-interactive rounded-2xl p-6 border-[#00f0ff]/30 group">
+                <span class="absolute -left-[31px] sm:-left-[39px] top-6 w-5 h-5 rounded-full bg-obsidian border-2 border-[#00f0ff] shadow-glow-cyan flex items-center justify-center">
+                  <span class="w-2.5 h-2.5 rounded-full bg-gradient-to-r from-[#00f0ff] to-[#ff2a6d] animate-pulse"></span>
+                </span>
+                <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                  <span class="px-3 py-1 rounded-lg bg-gradient-to-r from-[#00f0ff]/20 to-[#ff2a6d]/20 border border-[#00f0ff]/35 text-cyan-200 font-display text-[11px] font-bold tracking-wider">2026 &amp; BEYOND</span>
+                  <span class="text-xs text-emerald-300 font-semibold flex items-center gap-1.5"><i data-lucide="rocket" class="w-3.5 h-3.5"></i> Next Level</span>
+                </div>
+                <h3 class="font-display font-bold text-lg sm:text-xl text-white group-hover:text-neon-gradient transition-colors mb-2">
+                  2026 &amp; Beyond
+                </h3>
+                <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                  Expanding live broadcasts across <strong class="text-blue-300">Facebook Gaming</strong> and <strong class="text-emerald-300">Kick.com</strong> with bigger community events, upgraded production quality, and this official CYBER CREATION hub!
+                </p>
+              </article>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         4. CONTENT & HIGHLIGHTS GALLERY (FILTERABLE + PREVIEW MODAL)
+         ===================================================================== -->
+    <section id="content" class="py-16 sm:py-24 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- Section Header + Filter Tabs -->
+        <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-12 reveal">
+          <div>
+            <span class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#00f0ff]/15 border border-[#00f0ff]/35 text-[#00f0ff] text-xs font-display font-semibold uppercase tracking-widest mb-3">
+              <i data-lucide="play-circle" class="w-3.5 h-3.5"></i> Media Vault
+            </span>
+            <h2 class="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl text-white tracking-tight">
+              Content &amp; <span class="text-neon-gradient">Highlights</span>
+            </h2>
+            <p class="text-slate-400 mt-2 max-w-xl text-sm sm:text-base">
+              Tap any card to open the interactive preview modal with highlight notes and direct platform watch links.
+            </p>
+          </div>
+
+          <!-- Interactive Filter Tabs -->
+          <div id="filterBar" class="flex flex-wrap gap-2" role="tablist" aria-label="Content category filter">
+            <button type="button" data-filter="all" class="filter-btn active px-4 py-2.5 rounded-xl text-xs font-display font-bold tracking-wider bg-gradient-to-r from-[#00f0ff] to-[#8b5cf6] text-obsidian shadow-glow-cyan transition-all">
+              All
+            </button>
+            <button type="button" data-filter="gtav" class="filter-btn px-4 py-2.5 rounded-xl text-xs font-display font-bold tracking-wider cyber-glass text-slate-300 hover:text-[#00f0ff] transition-all">
+              GTA V RP
+            </button>
+            <button type="button" data-filter="streams" class="filter-btn px-4 py-2.5 rounded-xl text-xs font-display font-bold tracking-wider cyber-glass text-slate-300 hover:text-[#00f0ff] transition-all">
+              Live Streams
+            </button>
+            <button type="button" data-filter="giveaways" class="filter-btn px-4 py-2.5 rounded-xl text-xs font-display font-bold tracking-wider cyber-glass text-slate-300 hover:text-[#00f0ff] transition-all">
+              Giveaways
+            </button>
+            <button type="button" data-filter="clips" class="filter-btn px-4 py-2.5 rounded-xl text-xs font-display font-bold tracking-wider cyber-glass text-slate-300 hover:text-[#00f0ff] transition-all">
+              Clips &amp; Tech
+            </button>
+          </div>
+        </div>
+
+        <!-- 6 Stylish Content Cards -->
+        <!-- EASY EDIT: Update each card's data-url with your actual Facebook Gaming, Kick, or YouTube video URL -->
+        <div id="contentGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 reveal">
+
+          <!-- Card 1 -->
+          <article class="content-card cyber-glass cyber-glass-interactive rounded-3xl overflow-hidden flex flex-col group cursor-pointer shadow-glass-card"
+            data-categories="gtav"
+            data-badge="GTA V RP"
+            data-duration="01:48:20"
+            data-platform="Facebook Gaming"
+            data-title="Generation RP — Midnight Pursuit &amp; Squad Chaos"
+            data-desc="Full throttle midnight pursuits, intense city negotiations, and hilarious squad comms inside Generation Roleplay BD. One of CYBER CREATION's most electric RP episodes."
+            data-highlights="High-speed escape through Downtown LS|Intense negotiator standoff with city PD|Unscripted squad comedy moments"
+            data-url="https://facebook.com"><!-- EASY EDIT: Replace data-url with your actual Facebook video link -->
+            <div class="relative h-48 bg-gradient-to-br from-cyan-950 via-[#0d1226] to-violet-950 overflow-hidden flex items-center justify-center">
+              <div class="absolute inset-0 cyber-grid-bg opacity-75"></div>
+              <div class="absolute -bottom-8 -right-8 w-36 h-36 rounded-full bg-[#00f0ff]/25 blur-2xl"></div>
+              <div class="relative z-10 w-16 h-16 rounded-2xl bg-black/55 backdrop-blur-md border border-[#00f0ff]/55 flex items-center justify-center text-[#00f0ff] group-hover:scale-110 group-hover:bg-[#00f0ff] group-hover:text-obsidian transition-all shadow-glow-cyan">
+                <i data-lucide="play" class="w-7 h-7 fill-current ml-0.5"></i>
+              </div>
+              <span class="absolute top-3.5 left-3.5 px-3 py-1 rounded-lg bg-[#00f0ff]/20 backdrop-blur-md border border-[#00f0ff]/45 text-cyan-200 text-[11px] font-display font-bold uppercase tracking-wider">GTA V RP</span>
+              <span class="absolute bottom-3.5 right-3.5 px-2.5 py-1 rounded-lg bg-black/75 border border-white/10 text-cyan-200 text-[11px] font-mono">01:48:20</span>
+            </div>
+            <div class="p-6 flex-1 flex flex-col">
+              <h3 class="font-display font-bold text-lg text-white group-hover:text-[#00f0ff] transition-colors mb-2">
+                Generation RP — Midnight Pursuit &amp; Squad Chaos
+              </h3>
+              <p class="text-slate-400 text-sm leading-relaxed mb-5 flex-1">
+                Adrenaline-packed chases, cinematic RP storytelling, and late-night laughter in Los Santos.
+              </p>
+              <div class="flex items-center justify-between pt-4 border-t border-white/10 text-xs">
+                <span class="text-slate-400 flex items-center gap-1.5"><i data-lucide="tv" class="w-3.5 h-3.5 text-[#00f0ff]"></i> Facebook Gaming</span>
+                <span class="text-[#00f0ff] font-semibold inline-flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                  Preview <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 2 -->
+          <article class="content-card cyber-glass cyber-glass-interactive rounded-3xl overflow-hidden flex flex-col group cursor-pointer shadow-glass-card"
+            data-categories="streams"
+            data-badge="Live Streams"
+            data-duration="03:15:40"
+            data-platform="Kick.com"
+            data-title="CYBER CREATION Kick.com Launch Marathon"
+            data-desc="Celebrating CYBER CREATION's multi-platform expansion onto Kick.com! Crisp high-bitrate gameplay, real-time viewer banter, and back-to-back GTA V FiveM RP missions."
+            data-highlights="First official Kick.com broadcast|Live Q&A with the Cyber Creation squad|Zero-lag high-bitrate RP showcase"
+            data-url="https://kick.com"><!-- EASY EDIT: Replace data-url with your actual Kick stream link -->
+            <div class="relative h-48 bg-gradient-to-br from-emerald-950 via-[#0b161d] to-slate-950 overflow-hidden flex items-center justify-center">
+              <div class="absolute inset-0 cyber-grid-bg opacity-75"></div>
+              <div class="absolute -top-6 right-6 w-36 h-36 rounded-full bg-emerald-400/20 blur-2xl"></div>
+              <div class="relative z-10 w-16 h-16 rounded-2xl bg-black/55 backdrop-blur-md border border-emerald-400/55 flex items-center justify-center text-emerald-300 group-hover:scale-110 group-hover:bg-emerald-400 group-hover:text-obsidian transition-all">
+                <i data-lucide="zap" class="w-7 h-7"></i>
+              </div>
+              <span class="absolute top-3.5 left-3.5 px-3 py-1 rounded-lg bg-emerald-500/20 backdrop-blur-md border border-emerald-400/45 text-emerald-200 text-[11px] font-display font-bold uppercase tracking-wider">Live Streams</span>
+              <span class="absolute bottom-3.5 right-3.5 px-2.5 py-1 rounded-lg bg-black/75 border border-white/10 text-emerald-200 text-[11px] font-mono">03:15:40</span>
+            </div>
+            <div class="p-6 flex-1 flex flex-col">
+              <h3 class="font-display font-bold text-lg text-white group-hover:text-emerald-300 transition-colors mb-2">
+                CYBER CREATION Kick.com Launch Marathon
+              </h3>
+              <p class="text-slate-400 text-sm leading-relaxed mb-5 flex-1">
+                High-energy debut broadcast on Kick.com featuring non-stop roleplay action and live community chat.
+              </p>
+              <div class="flex items-center justify-between pt-4 border-t border-white/10 text-xs">
+                <span class="text-slate-400 flex items-center gap-1.5"><i data-lucide="zap" class="w-3.5 h-3.5 text-emerald-400"></i> Kick.com</span>
+                <span class="text-emerald-300 font-semibold inline-flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                  Preview <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 3 -->
+          <article class="content-card cyber-glass cyber-glass-interactive rounded-3xl overflow-hidden flex flex-col group cursor-pointer shadow-glass-card"
+            data-categories="giveaways streams"
+            data-badge="Giveaways"
+            data-duration="SPECIAL DROP"
+            data-platform="Facebook Gaming & Discord"
+            data-title="Z-Core Bangladesh Official Giveaway Night"
+            data-desc="A massive community celebration powered by Z-Core Bangladesh! Exclusive gaming store promos, Discord lucky draws, and live winner announcements on the CYBER CREATION stream."
+            data-highlights="Sponsored by Z-Core Bangladesh|Live Discord wheel & chat drops|Exclusive supporter discount codes"
+            data-url="https://discord.com"><!-- EASY EDIT: Replace data-url with your Discord/Giveaway link -->
+            <div class="relative h-48 bg-gradient-to-br from-rose-950 via-[#1a0d1e] to-cyan-950 overflow-hidden flex items-center justify-center">
+              <div class="absolute inset-0 cyber-grid-bg opacity-75"></div>
+              <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-40 h-28 rounded-full bg-[#ff2a6d]/25 blur-2xl"></div>
+              <div class="relative z-10 w-16 h-16 rounded-2xl bg-black/55 backdrop-blur-md border border-[#ff2a6d]/55 flex items-center justify-center text-rose-300 group-hover:scale-110 group-hover:bg-[#ff2a6d] group-hover:text-white transition-all shadow-glow-crimson">
+                <i data-lucide="gift" class="w-7 h-7"></i>
+              </div>
+              <span class="absolute top-3.5 left-3.5 px-3 py-1 rounded-lg bg-[#ff2a6d]/20 backdrop-blur-md border border-[#ff2a6d]/45 text-rose-200 text-[11px] font-display font-bold uppercase tracking-wider">Giveaways</span>
+              <span class="absolute bottom-3.5 right-3.5 px-2.5 py-1 rounded-lg bg-emerald-500/20 border border-emerald-400/45 text-emerald-200 text-[11px] font-mono font-bold">PARTNER EVENT</span>
+            </div>
+            <div class="p-6 flex-1 flex flex-col">
+              <h3 class="font-display font-bold text-lg text-white group-hover:text-rose-300 transition-colors mb-2">
+                Z-Core Bangladesh Official Giveaway Night
+              </h3>
+              <p class="text-slate-400 text-sm leading-relaxed mb-5 flex-1">
+                Exclusive rewards, partner promos, and live giveaway draws hosted with Z-Core Bangladesh.
+              </p>
+              <div class="flex items-center justify-between pt-4 border-t border-white/10 text-xs">
+                <span class="text-slate-400 flex items-center gap-1.5"><i data-lucide="award" class="w-3.5 h-3.5 text-[#ff2a6d]"></i> Z-Core BD</span>
+                <span class="text-rose-300 font-semibold inline-flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                  Preview <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 4 -->
+          <article class="content-card cyber-glass cyber-glass-interactive rounded-3xl overflow-hidden flex flex-col group cursor-pointer shadow-glass-card"
+            data-categories="gtav clips"
+            data-badge="Clips & Tech"
+            data-duration="14:32"
+            data-platform="YouTube"
+            data-title="FiveM Qbox Framework Lab — Custom Scripts &amp; UI"
+            data-desc="A developer peek into Rakibul Saikat Leo's FiveM Qbox sandbox: clean server optimization, custom HUD tweaks, and futuristic NUI styling tailored for smooth roleplay."
+            data-highlights="Qbox core configuration walkthrough|Optimized script tick rates for FPS|Cyber-styled custom HUD & overlay testing"
+            data-url="https://youtube.com"><!-- EASY EDIT: Replace data-url with your YouTube video link -->
+            <div class="relative h-48 bg-gradient-to-br from-indigo-950 via-[#0d1328] to-sky-950 overflow-hidden flex items-center justify-center">
+              <div class="absolute inset-0 cyber-grid-bg opacity-75"></div>
+              <div class="absolute bottom-2 left-6 w-36 h-36 rounded-full bg-[#8b5cf6]/25 blur-2xl"></div>
+              <div class="relative z-10 w-16 h-16 rounded-2xl bg-black/55 backdrop-blur-md border border-[#8b5cf6]/55 flex items-center justify-center text-violet-300 group-hover:scale-110 group-hover:bg-[#8b5cf6] group-hover:text-white transition-all shadow-glow-violet">
+                <i data-lucide="code-2" class="w-7 h-7"></i>
+              </div>
+              <span class="absolute top-3.5 left-3.5 px-3 py-1 rounded-lg bg-[#8b5cf6]/20 backdrop-blur-md border border-[#8b5cf6]/45 text-violet-200 text-[11px] font-display font-bold uppercase tracking-wider">Clips &amp; Tech</span>
+              <span class="absolute bottom-3.5 right-3.5 px-2.5 py-1 rounded-lg bg-black/75 border border-white/10 text-violet-200 text-[11px] font-mono">14:32</span>
+            </div>
+            <div class="p-6 flex-1 flex flex-col">
+              <h3 class="font-display font-bold text-lg text-white group-hover:text-violet-300 transition-colors mb-2">
+                FiveM Qbox Framework Lab — Custom Scripts &amp; UI
+              </h3>
+              <p class="text-slate-400 text-sm leading-relaxed mb-5 flex-1">
+                Behind-the-scenes Qbox server tinkering, custom overlays, and AI-powered visual design experiments.
+              </p>
+              <div class="flex items-center justify-between pt-4 border-t border-white/10 text-xs">
+                <span class="text-slate-400 flex items-center gap-1.5"><i data-lucide="terminal" class="w-3.5 h-3.5 text-[#8b5cf6]"></i> Dev Showcase</span>
+                <span class="text-violet-300 font-semibold inline-flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                  Preview <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 5 -->
+          <article class="content-card cyber-glass cyber-glass-interactive rounded-3xl overflow-hidden flex flex-col group cursor-pointer shadow-glass-card"
+            data-categories="streams clips"
+            data-badge="Live Streams"
+            data-duration="01:45"
+            data-platform="Facebook & YouTube"
+            data-title="CYBER CREATION Official Neon Stream Intro"
+            data-desc="The signature high-voltage opening reel played before every CYBER CREATION livestream—packed with neon glitch transitions, synth beats, and top community hype clips."
+            data-highlights="Custom cyber-neon motion graphics|Signature CC emblem animation|Synced to high-energy synthwave audio"
+            data-url="https://facebook.com"><!-- EASY EDIT: Replace data-url with your stream intro reel link -->
+            <div class="relative h-48 bg-gradient-to-br from-violet-950 via-[#150e26] to-rose-950 overflow-hidden flex items-center justify-center">
+              <div class="absolute inset-0 cyber-grid-bg opacity-75"></div>
+              <div class="absolute -top-8 -left-8 w-36 h-36 rounded-full bg-[#ff2a6d]/25 blur-2xl"></div>
+              <div class="relative z-10 w-16 h-16 rounded-2xl bg-black/55 backdrop-blur-md border border-[#00f0ff]/55 flex items-center justify-center text-[#00f0ff] group-hover:scale-110 group-hover:bg-[#00f0ff] group-hover:text-obsidian transition-all shadow-glow-cyan">
+                <i data-lucide="film" class="w-7 h-7"></i>
+              </div>
+              <span class="absolute top-3.5 left-3.5 px-3 py-1 rounded-lg bg-[#00f0ff]/20 backdrop-blur-md border border-[#00f0ff]/45 text-cyan-200 text-[11px] font-display font-bold uppercase tracking-wider">Live Streams</span>
+              <span class="absolute bottom-3.5 right-3.5 px-2.5 py-1 rounded-lg bg-black/75 border border-white/10 text-cyan-200 text-[11px] font-mono">01:45</span>
+            </div>
+            <div class="p-6 flex-1 flex flex-col">
+              <h3 class="font-display font-bold text-lg text-white group-hover:text-[#00f0ff] transition-colors mb-2">
+                CYBER CREATION Official Neon Stream Intro
+              </h3>
+              <p class="text-slate-400 text-sm leading-relaxed mb-5 flex-1">
+                The futuristic intro reel setting the mood every time CYBER CREATION goes live.
+              </p>
+              <div class="flex items-center justify-between pt-4 border-t border-white/10 text-xs">
+                <span class="text-slate-400 flex items-center gap-1.5"><i data-lucide="clapperboard" class="w-3.5 h-3.5 text-[#00f0ff]"></i> Intro Reel</span>
+                <span class="text-[#00f0ff] font-semibold inline-flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                  Preview <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 6 -->
+          <article class="content-card cyber-glass cyber-glass-interactive rounded-3xl overflow-hidden flex flex-col group cursor-pointer shadow-glass-card"
+            data-categories="clips"
+            data-badge="Clips & Tech"
+            data-duration="08:15"
+            data-platform="Instagram & YouTube"
+            data-title="Desk Rig Tour &amp; Keeway RKR 165cc Night Reel"
+            data-desc="A lifestyle reel showing both sides of Rakibul Saikat Leo—the tempered-glass CYBER CREATION streaming station indoors, and the stealth black Keeway RKR 165cc out on night rides."
+            data-highlights="Tempered glass PC & boom-arm mic tour|iQOO Z9s mobile workflow shots|Keeway RKR 165cc dark visor night roll"
+            data-url="https://instagram.com"><!-- EASY EDIT: Replace data-url with your Instagram reel or YouTube link -->
+            <div class="relative h-48 bg-gradient-to-br from-slate-900 via-[#180f24] to-rose-950 overflow-hidden flex items-center justify-center">
+              <div class="absolute inset-0 cyber-grid-bg opacity-75"></div>
+              <div class="absolute -bottom-6 right-8 w-36 h-36 rounded-full bg-[#ff2a6d]/25 blur-2xl"></div>
+              <div class="relative z-10 w-16 h-16 rounded-2xl bg-black/55 backdrop-blur-md border border-[#ff2a6d]/55 flex items-center justify-center text-rose-300 group-hover:scale-110 group-hover:bg-[#ff2a6d] group-hover:text-white transition-all shadow-glow-crimson">
+                <i data-lucide="gauge" class="w-7 h-7"></i>
+              </div>
+              <span class="absolute top-3.5 left-3.5 px-3 py-1 rounded-lg bg-[#ff2a6d]/20 backdrop-blur-md border border-[#ff2a6d]/45 text-rose-200 text-[11px] font-display font-bold uppercase tracking-wider">Clips &amp; Tech</span>
+              <span class="absolute bottom-3.5 right-3.5 px-2.5 py-1 rounded-lg bg-black/75 border border-white/10 text-rose-200 text-[11px] font-mono">08:15</span>
+            </div>
+            <div class="p-6 flex-1 flex flex-col">
+              <h3 class="font-display font-bold text-lg text-white group-hover:text-rose-300 transition-colors mb-2">
+                Desk Rig Tour &amp; Keeway RKR 165cc Night Reel
+              </h3>
+              <p class="text-slate-400 text-sm leading-relaxed mb-5 flex-1">
+                From glowing desk hardware to stealth sport rides with a custom dark tinted visor.
+              </p>
+              <div class="flex items-center justify-between pt-4 border-t border-white/10 text-xs">
+                <span class="text-slate-400 flex items-center gap-1.5"><i data-lucide="instagram" class="w-3.5 h-3.5 text-[#ff2a6d]"></i> Lifestyle Reel</span>
+                <span class="text-rose-300 font-semibold inline-flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                  Preview <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         5. "MY STUFF" — SETUP, GEAR & RIDE BENTO GRID
+         ===================================================================== -->
+    <section id="setup" class="py-16 sm:py-24 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- Section Header -->
+        <div class="text-center max-w-2xl mx-auto mb-14 reveal">
+          <span class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#ff2a6d]/15 border border-[#ff2a6d]/40 text-rose-300 text-xs font-display font-semibold uppercase tracking-widest mb-3">
+            <i data-lucide="layers" class="w-3.5 h-3.5"></i> Loadout &amp; Lifestyle
+          </span>
+          <h2 class="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl text-white tracking-tight">
+            My <span class="text-neon-gradient">Stuff</span>
+          </h2>
+          <p class="text-slate-400 mt-3 text-sm sm:text-base">
+            The gaming PC rig, streaming gear, daily phone, FiveM dev lab, and street ride powering CYBER CREATION.
+          </p>
+        </div>
+
+        <!-- Bento Grid (4 Signature Cards) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-5 reveal">
+
+          <!-- Card 1: Gaming PC Rig (7 cols on lg) -->
+          <div class="lg:col-span-7 cyber-glass cyber-glass-interactive rounded-3xl p-6 sm:p-8 relative overflow-hidden group">
+            <div class="absolute -top-12 -right-12 w-48 h-48 rounded-full bg-[#00f0ff]/15 blur-3xl group-hover:bg-[#00f0ff]/25 transition-colors"></div>
+
+            <div class="flex items-start justify-between gap-4 mb-6 relative z-10">
+              <div class="flex items-center gap-3.5">
+                <div class="w-12 h-12 rounded-2xl bg-[#00f0ff]/15 border border-[#00f0ff]/40 text-[#00f0ff] flex items-center justify-center shrink-0">
+                  <i data-lucide="cpu" class="w-6 h-6"></i>
+                </div>
+                <div>
+                  <span class="font-hud text-xs uppercase tracking-[0.2em] text-[#00f0ff] font-bold">BATTLE STATION // 01</span>
+                  <h3 class="font-display font-bold text-xl sm:text-2xl text-white">Gaming PC Rig</h3>
+                </div>
+              </div>
+              <span class="hidden sm:inline-flex px-3 py-1 rounded-xl bg-white/5 border border-white/10 text-[11px] font-mono text-cyan-200">TEMPERED GLASS CASE</span>
+            </div>
+
+            <!-- Hardware Specs -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 relative z-10">
+              <div class="rounded-2xl bg-white/[0.04] border border-white/10 p-4">
+                <div class="flex items-center gap-2 text-xs text-slate-400 mb-1">
+                  <i data-lucide="microchip" class="w-4 h-4 text-[#00f0ff]"></i> Processor
+                </div>
+                <p class="font-display font-bold text-sm sm:text-base text-white">Intel Core i5 10th Gen</p>
+              </div>
+              <div class="rounded-2xl bg-white/[0.04] border border-white/10 p-4">
+                <div class="flex items-center gap-2 text-xs text-slate-400 mb-1">
+                  <i data-lucide="monitor" class="w-4 h-4 text-[#8b5cf6]"></i> Graphics Card
+                </div>
+                <p class="font-display font-bold text-sm sm:text-base text-white">NVIDIA GTX 1660 Super</p>
+              </div>
+              <div class="rounded-2xl bg-white/[0.04] border border-white/10 p-4">
+                <div class="flex items-center gap-2 text-xs text-slate-400 mb-1">
+                  <i data-lucide="memory-stick" class="w-4 h-4 text-[#00f0ff]"></i> Memory
+                </div>
+                <p class="font-display font-bold text-sm sm:text-base text-white">16GB RAM</p>
+              </div>
+              <div class="rounded-2xl bg-white/[0.04] border border-white/10 p-4">
+                <div class="flex items-center gap-2 text-xs text-slate-400 mb-1">
+                  <i data-lucide="hard-drive" class="w-4 h-4 text-[#ff2a6d]"></i> Storage
+                </div>
+                <p class="font-display font-bold text-sm sm:text-base text-white">Gaming SSD + 1TB HDD</p>
+              </div>
+            </div>
+
+            <div class="mt-3.5 rounded-2xl bg-white/[0.03] border border-white/10 px-4 py-3 flex items-center gap-2.5 text-xs sm:text-sm text-slate-300 relative z-10">
+              <i data-lucide="box" class="w-4 h-4 text-[#00f0ff] shrink-0"></i>
+              <span>Housed in a <strong class="text-white">Tempered Glass Cyber Case</strong> built for clean airflow &amp; glow.</span>
+            </div>
+          </div>
+
+          <!-- Card 2: Streaming & Gear (5 cols on lg) -->
+          <div class="lg:col-span-5 cyber-glass cyber-glass-interactive rounded-3xl p-6 sm:p-8 relative overflow-hidden group flex flex-col justify-between">
+            <div class="absolute -bottom-10 -right-10 w-44 h-44 rounded-full bg-[#8b5cf6]/18 blur-3xl group-hover:bg-[#8b5cf6]/28 transition-colors"></div>
+
+            <div class="relative z-10">
+              <div class="flex items-center gap-3.5 mb-5">
+                <div class="w-12 h-12 rounded-2xl bg-[#8b5cf6]/15 border border-[#8b5cf6]/40 text-violet-300 flex items-center justify-center shrink-0">
+                  <i data-lucide="mic" class="w-6 h-6"></i>
+                </div>
+                <div>
+                  <span class="font-hud text-xs uppercase tracking-[0.2em] text-violet-300 font-bold">STUDIO // 02</span>
+                  <h3 class="font-display font-bold text-xl text-white">Streaming &amp; Gear</h3>
+                </div>
+              </div>
+
+              <p class="text-sm text-slate-400 leading-relaxed mb-5">
+                Clear roleplay voice audio, comfortable late-night stream ergonomics, and a fast daily smartphone for managing socials on the go.
+              </p>
+
+              <ul class="space-y-3 text-sm text-slate-200">
+                <li class="flex items-center gap-3 p-3.5 rounded-2xl bg-white/[0.04] border border-white/10">
+                  <i data-lucide="mic-2" class="w-4 h-4 text-[#00f0ff] shrink-0"></i>
+                  <span>Desktop Condenser Mic with Adjustable Boom Arm</span>
+                </li>
+                <li class="flex items-center gap-3 p-3.5 rounded-2xl bg-white/[0.04] border border-white/10">
+                  <i data-lucide="armchair" class="w-4 h-4 text-[#8b5cf6] shrink-0"></i>
+                  <span>Ergonomic Stream Setup</span>
+                </li>
+                <li class="flex items-center gap-3 p-3.5 rounded-2xl bg-white/[0.04] border border-white/10">
+                  <i data-lucide="smartphone" class="w-4 h-4 text-[#ff2a6d] shrink-0"></i>
+                  <span><strong class="text-white">iQOO Z9s</strong> Daily Driver</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Card 3: Dev & Creative Lab (6 cols on lg) -->
+          <div class="lg:col-span-6 cyber-glass cyber-glass-interactive rounded-3xl p-6 sm:p-8 relative overflow-hidden group">
+            <div class="absolute top-0 right-0 w-40 h-40 rounded-full bg-[#00f0ff]/12 blur-3xl"></div>
+            <div class="relative z-10">
+              <div class="flex items-center justify-between gap-4 mb-5">
+                <div class="flex items-center gap-3.5">
+                  <div class="w-12 h-12 rounded-2xl bg-[#00f0ff]/15 border border-[#00f0ff]/40 text-[#00f0ff] flex items-center justify-center shrink-0">
+                    <i data-lucide="terminal" class="w-6 h-6"></i>
+                  </div>
+                  <div>
+                    <span class="font-hud text-xs uppercase tracking-[0.2em] text-[#00f0ff] font-bold">CREATIVE // 03</span>
+                    <h3 class="font-display font-bold text-xl text-white">Dev &amp; Creative Lab</h3>
+                  </div>
+                </div>
+                <span class="px-2.5 py-1 rounded-lg bg-[#00f0ff]/15 border border-[#00f0ff]/35 text-[#00f0ff] text-[11px] font-mono font-bold">QBOX LAB</span>
+              </div>
+
+              <p class="text-sm text-slate-400 leading-relaxed mb-5">
+                Crafting CYBER CREATION's visual identity and building immersive FiveM server experiences through code and modern editing tools.
+              </p>
+
+              <div class="flex flex-wrap gap-2.5">
+                <span class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-white/[0.05] border border-white/10 text-xs font-semibold text-cyan-200">
+                  <i data-lucide="server" class="w-3.5 h-3.5 text-[#00f0ff]"></i> FiveM Qbox Framework Tinkering
+                </span>
+                <span class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-white/[0.05] border border-white/10 text-xs font-semibold text-violet-200">
+                  <i data-lucide="layout-template" class="w-3.5 h-3.5 text-[#8b5cf6]"></i> Custom Stream Overlays
+                </span>
+                <span class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-white/[0.05] border border-white/10 text-xs font-semibold text-rose-200">
+                  <i data-lucide="wand-2" class="w-3.5 h-3.5 text-[#ff2a6d]"></i> AI Graphics &amp; Video Editing
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4: My Ride (6 cols on lg) -->
+          <div class="lg:col-span-6 cyber-glass cyber-glass-interactive rounded-3xl p-6 sm:p-8 border-[#ff2a6d]/30 relative overflow-hidden group">
+            <div class="absolute -bottom-12 -right-8 w-48 h-48 rounded-full bg-[#ff2a6d]/18 blur-3xl group-hover:bg-[#ff2a6d]/28 transition-colors"></div>
+
+            <div class="relative z-10 flex flex-col justify-between h-full">
+              <div>
+                <div class="flex items-center justify-between gap-4 mb-5">
+                  <div class="flex items-center gap-3.5">
+                    <div class="w-12 h-12 rounded-2xl bg-[#ff2a6d]/15 border border-[#ff2a6d]/40 text-rose-300 flex items-center justify-center shrink-0 shadow-[0_0_18px_rgba(255,42,109,0.22)]">
+                      <i data-lucide="bike" class="w-6 h-6"></i>
+                    </div>
+                    <div>
+                      <span class="font-hud text-xs uppercase tracking-[0.2em] text-rose-300 font-bold">MY RIDE // 04</span>
+                      <h3 class="font-display font-bold text-xl text-white">Street Machine</h3>
+                    </div>
+                  </div>
+                  <span class="px-2.5 py-1 rounded-lg bg-[#ff2a6d]/15 border border-[#ff2a6d]/40 text-rose-200 text-[11px] font-mono font-bold">165CC SPORT</span>
+                </div>
+
+                <h4 class="font-display font-extrabold text-xl sm:text-2xl text-white mb-2">
+                  Keeway RKR 165cc
+                </h4>
+                <p class="text-sm text-slate-400 leading-relaxed mb-5">
+                  Off-stream adrenaline on two wheels—rocking a <strong class="text-slate-200">custom dark tinted visor</strong> and aggressive <strong class="text-rose-300">black &amp; sport styling accents</strong>.
+                </p>
+              </div>
+
+              <div class="flex flex-wrap items-center gap-2.5 pt-4 border-t border-white/10 text-xs">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white/[0.05] border border-white/10 text-slate-200 font-semibold">
+                  <i data-lucide="shield" class="w-3.5 h-3.5 text-[#ff2a6d]"></i> Custom Dark Tinted Visor
+                </span>
+                <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white/[0.05] border border-white/10 text-slate-200 font-semibold">
+                  <i data-lucide="flame" class="w-3.5 h-3.5 text-[#00f0ff]"></i> Black &amp; Sport Styling Accents
+                </span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         6. WEEKLY STREAM SCHEDULE + 7. OFFICIAL PARTNER SPOTLIGHT
+         ===================================================================== -->
+    <section id="schedule" class="py-16 sm:py-24 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+
+        <!-- 6. Weekly Stream Schedule with Real-Time BST Clock -->
+        <div class="cyber-glass rounded-3xl p-6 sm:p-9 border border-[#00f0ff]/25 shadow-glass-card reveal">
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-white/10">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#00f0ff]/20 to-[#8b5cf6]/25 border border-[#00f0ff]/40 text-[#00f0ff] flex items-center justify-center shrink-0">
+                <i data-lucide="calendar-clock" class="w-6 h-6"></i>
+              </div>
+              <div>
+                <h2 class="font-display font-extrabold text-2xl sm:text-3xl text-white">Weekly Stream Schedule</h2>
+                <p class="text-xs sm:text-sm text-slate-400 mt-0.5">Live on Facebook Gaming (CYBER CREATION) &amp; Kick.com</p>
+              </div>
+            </div>
+
+            <!-- Live Bangladesh Standard Time Digital Clock -->
+            <div class="inline-flex items-center gap-3 px-4 py-2.5 rounded-2xl bg-obsidian/90 border border-[#00f0ff]/40 self-start md:self-auto shadow-[0_0_20px_rgba(0,240,255,0.12)]">
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+              <div class="font-mono text-xs sm:text-sm">
+                <span class="text-slate-400">BST (Dhaka): </span>
+                <strong id="liveBstClock" class="text-[#00f0ff] tracking-wider">--:--:-- --</strong>
+              </div>
+            </div>
+          </div>
+
+          <!-- EASY EDIT: Adjust your actual streaming days & times inside the 4 cards below -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-6">
+            <div class="rounded-2xl bg-white/[0.035] border border-white/10 p-5 hover:border-[#00f0ff]/50 transition-all">
+              <div class="flex items-center justify-between mb-3">
+                <span class="font-display font-bold text-sm text-[#00f0ff]">SAT &bull; MON</span>
+                <span class="px-2.5 py-0.5 rounded-md bg-blue-500/15 border border-blue-400/35 text-blue-300 text-[11px] font-semibold">FB Gaming</span>
+              </div>
+              <p class="font-semibold text-white text-sm mb-1.5">GTA V FiveM RP Session</p>
+              <p class="text-xs text-slate-400 font-mono flex items-center gap-1.5">
+                <i data-lucide="clock" class="w-3.5 h-3.5 text-[#00f0ff]"></i> 09:30 PM &ndash; 12:30 AM
+              </p>
+            </div>
+
+            <div class="rounded-2xl bg-white/[0.035] border border-white/10 p-5 hover:border-emerald-400/50 transition-all">
+              <div class="flex items-center justify-between mb-3">
+                <span class="font-display font-bold text-sm text-emerald-300">WED</span>
+                <span class="px-2.5 py-0.5 rounded-md bg-emerald-500/15 border border-emerald-400/35 text-emerald-300 text-[11px] font-semibold">Kick.com</span>
+              </div>
+              <p class="font-semibold text-white text-sm mb-1.5">Kick Live &amp; RP Chaos</p>
+              <p class="text-xs text-slate-400 font-mono flex items-center gap-1.5">
+                <i data-lucide="clock" class="w-3.5 h-3.5 text-emerald-400"></i> 10:00 PM &ndash; 01:00 AM
+              </p>
+            </div>
+
+            <div class="rounded-2xl bg-white/[0.035] border border-white/10 p-5 hover:border-[#8b5cf6]/50 transition-all">
+              <div class="flex items-center justify-between mb-3">
+                <span class="font-display font-bold text-sm text-violet-300">FRI</span>
+                <span class="px-2.5 py-0.5 rounded-md bg-[#8b5cf6]/15 border border-[#8b5cf6]/40 text-violet-300 text-[11px] font-semibold">Weekend Special</span>
+              </div>
+              <p class="font-semibold text-white text-sm mb-1.5">Weekend Special Stream</p>
+              <p class="text-xs text-slate-400 font-mono flex items-center gap-1.5">
+                <i data-lucide="clock" class="w-3.5 h-3.5 text-[#8b5cf6]"></i> 09:00 PM &ndash; Late Night
+              </p>
+            </div>
+
+            <div class="rounded-2xl bg-white/[0.035] border border-white/10 p-5 hover:border-[#ff2a6d]/50 transition-all">
+              <div class="flex items-center justify-between mb-3">
+                <span class="font-display font-bold text-sm text-rose-300">BONUS</span>
+                <span class="px-2.5 py-0.5 rounded-md bg-[#ff2a6d]/15 border border-[#ff2a6d]/40 text-rose-300 text-[11px] font-semibold">Giveaways</span>
+              </div>
+              <p class="font-semibold text-white text-sm mb-1.5">Community Giveaways</p>
+              <p class="text-xs text-slate-400 font-mono flex items-center gap-1.5">
+                <i data-lucide="bell-ring" class="w-3.5 h-3.5 text-[#ff2a6d]"></i> Announced on Discord
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 7. Official Partner Spotlight: Z-Core Bangladesh -->
+        <div class="relative rounded-[2rem] p-[1.5px] bg-gradient-to-r from-[#00f0ff] via-[#8b5cf6] to-[#ff2a6d] shadow-glow-violet reveal">
+          <div class="relative rounded-[30px] bg-gradient-to-br from-[#0c1024] via-[#080a14] to-[#1a0b1e] p-7 sm:p-10 lg:p-12 overflow-hidden">
+            <div class="absolute -top-24 -right-24 w-72 h-72 rounded-full bg-[#ff2a6d]/15 blur-3xl pointer-events-none"></div>
+            <div class="absolute -bottom-24 -left-24 w-72 h-72 rounded-full bg-[#00f0ff]/15 blur-3xl pointer-events-none"></div>
+
+            <div class="relative z-10 grid lg:grid-cols-12 gap-8 items-center">
+              <!-- Partner Copy -->
+              <div class="lg:col-span-8">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#00f0ff]/15 border border-[#00f0ff]/40 text-[#00f0ff] text-xs font-display font-bold tracking-widest uppercase mb-4">
+                  <i data-lucide="handshake" class="w-4 h-4"></i> Official Gaming Store Partner
+                </div>
+
+                <h2 class="font-display font-black text-3xl sm:text-4xl lg:text-5xl text-white mb-4">
+                  Z-Core <span class="text-neon-gradient">Bangladesh</span>
+                </h2>
+
+                <p class="text-slate-300 text-sm sm:text-base lg:text-lg leading-relaxed mb-6 max-w-2xl">
+                  CYBER CREATION is officially partnered with <strong class="text-white">Z-Core Bangladesh</strong>—your trusted gaming store partner! Join our Discord server to unlock exclusive stream giveaways, special offers, and community drops.
+                </p>
+
+                <!-- Partner Perks -->
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-8">
+                  <div class="rounded-2xl bg-white/[0.05] border border-white/10 p-3.5 flex items-center gap-3">
+                    <i data-lucide="gift" class="w-5 h-5 text-[#ff2a6d] shrink-0"></i>
+                    <span class="text-xs sm:text-sm font-semibold text-slate-200">Epic Giveaways</span>
+                  </div>
+                  <div class="rounded-2xl bg-white/[0.05] border border-white/10 p-3.5 flex items-center gap-3">
+                    <i data-lucide="shopping-bag" class="w-5 h-5 text-[#00f0ff] shrink-0"></i>
+                    <span class="text-xs sm:text-sm font-semibold text-slate-200">Gaming Store Deals</span>
+                  </div>
+                  <div class="rounded-2xl bg-white/[0.05] border border-white/10 p-3.5 flex items-center gap-3">
+                    <i data-lucide="messages-square" class="w-5 h-5 text-[#8b5cf6] shrink-0"></i>
+                    <span class="text-xs sm:text-sm font-semibold text-slate-200">Discord Drops</span>
+                  </div>
+                </div>
+
+                <!-- Partner Buttons -->
+                <div class="flex flex-col sm:flex-row gap-3.5">
+                  <!-- EASY EDIT: Put Z-Core Bangladesh store or official Discord link below -->
+                  <a href="https://discord.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-2xl bg-gradient-to-r from-[#00f0ff] to-[#8b5cf6] text-obsidian font-display font-extrabold text-xs sm:text-sm tracking-wider shadow-glow-cyan hover:shadow-glow-violet hover:-translate-y-0.5 transition-all">
+                    <i data-lucide="external-link" class="w-4 h-4"></i>
+                    <span>VISIT Z-CORE &amp; DISCORD</span>
+                  </a>
+                  <a href="#contact" class="inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-2xl cyber-glass border border-[#ff2a6d]/45 text-slate-100 font-display font-bold text-xs sm:text-sm tracking-wider hover:bg-[#ff2a6d]/15 transition-all">
+                    <i data-lucide="briefcase" class="w-4 h-4 text-[#ff2a6d]"></i>
+                    <span>PARTNER WITH US</span>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Stylized Z-Core BD Emblem -->
+              <div class="lg:col-span-4 flex justify-center">
+                <div class="w-52 h-52 sm:w-56 sm:h-56 rounded-3xl cyber-glass border border-[#00f0ff]/35 flex flex-col items-center justify-center p-6 text-center shadow-glass-card">
+                  <div class="w-24 h-24 rounded-2xl bg-gradient-to-br from-[#00f0ff]/20 via-[#8b5cf6]/25 to-[#ff2a6d]/20 border border-[#8b5cf6]/50 flex items-center justify-center mb-4 shadow-glow-violet">
+                    <svg class="w-14 h-14" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+                      <polygon points="32,4 58,19 58,45 32,60 6,45 6,19" stroke="url(#zcoreGrad)" stroke-width="3" fill="rgba(0,240,255,0.08)" />
+                      <path d="M21 22H43L21 42H43" stroke="#00f0ff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" />
+                      <defs>
+                        <linearGradient id="zcoreGrad" x1="6" y1="4" x2="58" y2="60" gradientUnits="userSpaceOnUse">
+                          <stop stop-color="#00f0ff" />
+                          <stop offset="0.5" stop-color="#8b5cf6" />
+                          <stop offset="1" stop-color="#ff2a6d" />
+                        </linearGradient>
+                      </defs>
+                    </svg>
+                  </div>
+                  <span class="font-display font-extrabold text-lg text-white tracking-wider">Z-CORE BD</span>
+                  <span class="font-hud text-xs uppercase tracking-[0.22em] text-[#00f0ff] font-bold mt-1">Official Partner</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         8. SOCIAL & CONTACT HUB
+         ===================================================================== -->
+    <section id="contact" class="py-16 sm:py-24 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- Section Header -->
+        <div class="text-center max-w-2xl mx-auto mb-14 reveal">
+          <span class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#00f0ff]/15 border border-[#00f0ff]/35 text-[#00f0ff] text-xs font-display font-semibold uppercase tracking-widest mb-3">
+            <i data-lucide="link-2" class="w-3.5 h-3.5"></i> Stay Connected
+          </span>
+          <h2 class="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl text-white tracking-tight">
+            Social &amp; <span class="text-neon-gradient">Contact Hub</span>
+          </h2>
+          <p class="text-slate-400 mt-3 text-sm sm:text-base">
+            Join the CYBER CREATION community across all platforms or drop a direct message for sponsorships &amp; collabs.
+          </p>
+        </div>
+
+        <div class="grid lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+
+          <!-- Left Column: Social Cards + Copyable Business Email -->
+          <div class="lg:col-span-6 space-y-4 reveal">
+            <h3 class="font-display font-bold text-base sm:text-lg text-white flex items-center gap-2 mb-2">
+              <i data-lucide="globe" class="w-5 h-5 text-[#00f0ff]"></i> Official CYBER CREATION Links
+            </h3>
+
+            <!-- EASY EDIT: Swap each href URL below with your real CYBER CREATION links before deploying -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+              <!-- Facebook Gaming -->
+              <!-- EASY EDIT: Replace with your Facebook Gaming Page URL -->
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="cyber-glass cyber-glass-interactive rounded-2xl p-5 flex items-center gap-4 group">
+                <div class="w-12 h-12 rounded-xl bg-blue-500/15 border border-blue-400/35 text-blue-400 flex items-center justify-center group-hover:bg-blue-500 group-hover:text-white transition-colors shrink-0">
+                  <i data-lucide="facebook" class="w-5 h-5"></i>
+                </div>
+                <div class="min-w-0 flex-1">
+                  <p class="font-display font-bold text-sm text-white group-hover:text-blue-300 truncate">Facebook Gaming</p>
+                  <p class="text-xs text-slate-400 truncate">@CyberCreation</p>
+                </div>
+                <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-500 group-hover:text-blue-300 shrink-0"></i>
+              </a>
+
+              <!-- Kick -->
+              <!-- EASY EDIT: Replace with your Kick.com channel URL -->
+              <a href="https://kick.com" target="_blank" rel="noopener noreferrer" class="cyber-glass cyber-glass-interactive rounded-2xl p-5 flex items-center gap-4 group">
+                <div class="w-12 h-12 rounded-xl bg-emerald-500/15 border border-emerald-400/35 text-emerald-400 flex items-center justify-center group-hover:bg-emerald-400 group-hover:text-obsidian transition-colors shrink-0">
+                  <i data-lucide="zap" class="w-5 h-5"></i>
+                </div>
+                <div class="min-w-0 flex-1">
+                  <p class="font-display font-bold text-sm text-white group-hover:text-emerald-300 truncate">Kick</p>
+                  <p class="text-xs text-slate-400 truncate">Live GTA V RP</p>
+                </div>
+                <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-500 group-hover:text-emerald-300 shrink-0"></i>
+              </a>
+
+              <!-- Discord -->
+              <!-- EASY EDIT: Replace with your Discord server invite URL -->
+              <a href="https://discord.com" target="_blank" rel="noopener noreferrer" class="cyber-glass cyber-glass-interactive rounded-2xl p-5 flex items-center gap-4 group">
+                <div class="w-12 h-12 rounded-xl bg-indigo-500/15 border border-indigo-400/35 text-indigo-400 flex items-center justify-center group-hover:bg-indigo-500 group-hover:text-white transition-colors shrink-0">
+                  <i data-lucide="messages-square" class="w-5 h-5"></i>
+                </div>
+                <div class="min-w-0 flex-1">
+                  <p class="font-display font-bold text-sm text-white group-hover:text-indigo-300 truncate">Discord</p>
+                  <p class="text-xs text-slate-400 truncate">Squad &amp; Giveaways</p>
+                </div>
+                <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-500 group-hover:text-indigo-300 shrink-0"></i>
+              </a>
+
+              <!-- YouTube -->
+              <!-- EASY EDIT: Replace with your YouTube channel URL -->
+              <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="cyber-glass cyber-glass-interactive rounded-2xl p-5 flex items-center gap-4 group">
+                <div class="w-12 h-12 rounded-xl bg-[#ff2a6d]/15 border border-[#ff2a6d]/40 text-rose-400 flex items-center justify-center group-hover:bg-[#ff2a6d] group-hover:text-white transition-colors shrink-0">
+                  <i data-lucide="youtube" class="w-5 h-5"></i>
+                </div>
+                <div class="min-w-0 flex-1">
+                  <p class="font-display font-bold text-sm text-white group-hover:text-rose-300 truncate">YouTube</p>
+                  <p class="text-xs text-slate-400 truncate">Clips, VODs &amp; Tech</p>
+                </div>
+                <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-500 group-hover:text-rose-300 shrink-0"></i>
+              </a>
+
+              <!-- Instagram -->
+              <!-- EASY EDIT: Replace with your Instagram profile URL -->
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="sm:col-span-2 cyber-glass cyber-glass-interactive rounded-2xl p-5 flex items-center gap-4 group">
+                <div class="w-12 h-12 rounded-xl bg-pink-500/15 border border-pink-400/35 text-pink-400 flex items-center justify-center group-hover:bg-gradient-to-tr group-hover:from-amber-500 group-hover:via-pink-500 group-hover:to-violet-600 group-hover:text-white transition-colors shrink-0">
+                  <i data-lucide="instagram" class="w-5 h-5"></i>
+                </div>
+                <div class="min-w-0 flex-1">
+                  <p class="font-display font-bold text-sm text-white group-hover:text-pink-300">Instagram</p>
+                  <p class="text-xs text-slate-400">Daily stories, setup shots &amp; Keeway RKR 165cc reels</p>
+                </div>
+                <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-500 group-hover:text-pink-300 shrink-0"></i>
+              </a>
+
+            </div>
+
+            <!-- One-Click Copy Business / Sponsorship Email Box -->
+            <div class="cyber-glass rounded-2xl p-5 border border-[#00f0ff]/35">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div class="flex items-center gap-3.5 min-w-0">
+                  <div class="w-12 h-12 rounded-xl bg-[#00f0ff]/15 border border-[#00f0ff]/40 text-[#00f0ff] flex items-center justify-center shrink-0">
+                    <i data-lucide="mail" class="w-5 h-5"></i>
+                  </div>
+                  <div class="min-w-0">
+                    <p class="text-[11px] uppercase tracking-wider text-[#00f0ff] font-semibold">Business &amp; Sponsorship Email</p>
+                    <!-- EASY EDIT: Replace with your actual business email -->
+                    <p id="businessEmailText" class="font-mono text-sm sm:text-base font-semibold text-white truncate">
+                      rockosaikat71@gmail.com
+                    </p>
+                  </div>
+                </div>
+                <button id="copyEmailBtn" type="button" class="inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-[#00f0ff]/15 hover:bg-[#00f0ff] text-[#00f0ff] hover:text-obsidian border border-[#00f0ff]/45 font-display font-bold text-xs tracking-wider transition-all active:scale-95 shrink-0">
+                  <i data-lucide="copy" class="w-4 h-4"></i>
+                  <span>COPY EMAIL</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Interactive Contact / Sponsorship Form -->
+          <div class="lg:col-span-6 reveal">
+            <div class="cyber-glass rounded-3xl p-6 sm:p-8 border border-[#8b5cf6]/35 shadow-glass-card">
+              <div class="mb-6">
+                <h3 class="font-display font-bold text-xl sm:text-2xl text-white">Send a Message</h3>
+                <p class="text-sm text-slate-400 mt-1">Reach out to CYBER CREATION for sponsorships, brand deals, RP collabs, or community inquiries.</p>
+              </div>
+
+              <form id="contactForm" class="space-y-4" novalidate>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <!-- Name -->
+                  <div>
+                    <label for="senderName" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">
+                      Your Name <span class="text-[#00f0ff]">*</span>
+                    </label>
+                    <input id="senderName" name="name" type="text" required placeholder="Enter your name"
+                      class="w-full px-4 py-3 rounded-xl bg-obsidian/90 border border-white/15 text-slate-100 placeholder-slate-500 text-sm focus:outline-none focus:border-[#00f0ff] focus:ring-2 focus:ring-[#00f0ff]/20 transition-all" />
+                    <p id="nameError" class="hidden text-xs text-rose-400 mt-1.5"></p>
+                  </div>
+
+                  <!-- Email -->
+                  <div>
+                    <label for="senderEmail" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">
+                      Email Address <span class="text-[#00f0ff]">*</span>
+                    </label>
+                    <input id="senderEmail" name="email" type="email" required placeholder="you@example.com"
+                      class="w-full px-4 py-3 rounded-xl bg-obsidian/90 border border-white/15 text-slate-100 placeholder-slate-500 text-sm focus:outline-none focus:border-[#00f0ff] focus:ring-2 focus:ring-[#00f0ff]/20 transition-all" />
+                    <p id="emailError" class="hidden text-xs text-rose-400 mt-1.5"></p>
+                  </div>
+                </div>
+
+                <!-- Inquiry Type -->
+                <div>
+                  <label for="inquiryType" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">
+                    Inquiry Type <span class="text-[#00f0ff]">*</span>
+                  </label>
+                  <div class="relative">
+                    <select id="inquiryType" name="inquiryType" required
+                      class="w-full appearance-none px-4 py-3 rounded-xl bg-obsidian/90 border border-white/15 text-slate-100 text-sm focus:outline-none focus:border-[#8b5cf6] focus:ring-2 focus:ring-[#8b5cf6]/20 transition-all">
+                      <option value="Sponsorship / Brand Deal">Sponsorship / Brand Deal</option>
+                      <option value="GTA V FiveM RP Collab">GTA V FiveM RP Collab</option>
+                      <option value="Giveaway / Community Event">Giveaway / Community Event</option>
+                      <option value="General Message">General Message</option>
+                    </select>
+                    <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none"></i>
+                  </div>
+                </div>
+
+                <!-- Message -->
+                <div>
+                  <label for="senderMessage" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">
+                    Message <span class="text-[#00f0ff]">*</span>
+                  </label>
+                  <textarea id="senderMessage" name="message" rows="4" required placeholder="Tell CYBER CREATION about your sponsorship, collab, or idea..."
+                    class="w-full px-4 py-3 rounded-xl bg-obsidian/90 border border-white/15 text-slate-100 placeholder-slate-500 text-sm focus:outline-none focus:border-[#8b5cf6] focus:ring-2 focus:ring-[#8b5cf6]/20 transition-all resize-none"></textarea>
+                  <p id="messageError" class="hidden text-xs text-rose-400 mt-1.5"></p>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="w-full inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-xl bg-gradient-to-r from-[#00f0ff] via-[#8b5cf6] to-[#ff2a6d] text-white font-display font-bold text-xs sm:text-sm tracking-wider shadow-glow-cyan hover:shadow-glow-violet hover:brightness-110 active:scale-[0.99] transition-all">
+                  <i data-lucide="send" class="w-4 h-4"></i>
+                  <span>SEND MESSAGE</span>
+                </button>
+              </form>
+
+              <!-- Form Confirmation State -->
+              <div id="formSuccessState" class="hidden text-center py-8 px-4">
+                <div class="w-16 h-16 mx-auto rounded-2xl bg-emerald-500/15 border border-emerald-400/40 text-emerald-400 flex items-center justify-center mb-4 shadow-[0_0_24px_rgba(16,185,129,0.25)]">
+                  <i data-lucide="check-circle-2" class="w-8 h-8"></i>
+                </div>
+                <h4 class="font-display font-bold text-xl text-white mb-2">Transmission Received!</h4>
+                <p id="formSuccessSummary" class="text-sm text-slate-300 max-w-md mx-auto mb-6">
+                  Thanks for contacting CYBER CREATION. We will get back to you soon!
+                </p>
+                <button id="sendAnotherBtn" type="button" class="px-5 py-2.5 rounded-xl cyber-glass border border-[#00f0ff]/45 text-[#00f0ff] font-display font-bold text-xs tracking-wider hover:bg-[#00f0ff]/15 transition-colors">
+                  SEND ANOTHER MESSAGE
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =======================================================================
+       9. FOOTER
+       ======================================================================= -->
+  <footer class="relative z-10 border-t border-white/10 bg-obsidian/90 backdrop-blur-xl">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-9">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-5">
+        <div class="text-center sm:text-left">
+          <div class="inline-flex items-center gap-2.5 mb-1.5">
+            <span class="px-2 py-0.5 rounded-md bg-gradient-to-r from-[#00f0ff] to-[#8b5cf6] text-obsidian font-display font-black text-[11px] tracking-wider">CC</span>
+            <span class="font-display font-black text-base tracking-[0.14em] text-white">CYBER CREATION</span>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-400">
+            &copy; 2026 Cyber Creation. All rights reserved. Built for <span class="text-slate-200 font-semibold">Rakibul Saikat Leo</span>.
+          </p>
+        </div>
+
+        <!-- Back to Top Button -->
+        <a href="#home" aria-label="Back to top" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl cyber-glass border border-white/15 text-xs font-display font-bold text-slate-300 hover:text-[#00f0ff] hover:border-[#00f0ff]/50 hover:-translate-y-0.5 transition-all">
+          <span>BACK TO TOP</span>
+          <i data-lucide="arrow-up" class="w-4 h-4 text-[#00f0ff]"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =======================================================================
+       INTERACTIVE CONTENT PREVIEW MODAL
+       ======================================================================= -->
+  <div id="previewModal" class="fixed inset-0 z-[60] hidden items-center justify-center p-4 bg-black/80 backdrop-blur-md" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="relative w-full max-w-lg cyber-glass rounded-3xl p-6 sm:p-8 border border-[#00f0ff]/45 shadow-glow-cyan">
+      <!-- Close Button -->
+      <button id="closeModalBtn" type="button" aria-label="Close Preview" class="absolute top-4 right-4 w-10 h-10 rounded-xl bg-white/5 hover:bg-white/15 text-slate-300 hover:text-white flex items-center justify-center transition-colors">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <!-- Meta Pills -->
+      <div class="flex flex-wrap items-center gap-2 mb-4 pr-10">
+        <span id="modalBadge" class="px-3 py-1 rounded-lg bg-[#00f0ff]/20 border border-[#00f0ff]/45 text-cyan-200 text-xs font-display font-bold uppercase tracking-wider">GTA V RP</span>
+        <span id="modalDuration" class="px-2.5 py-1 rounded-lg bg-white/5 border border-white/10 text-violet-300 text-xs font-mono">00:00</span>
+      </div>
+
+      <h3 id="modalTitle" class="font-display font-bold text-xl sm:text-2xl text-white mb-3">
+        Highlight Title
+      </h3>
+
+      <p id="modalDesc" class="text-sm sm:text-base text-slate-300 leading-relaxed mb-5">
+        Highlight description.
+      </p>
+
+      <!-- Highlight Bullet Points -->
+      <div class="rounded-2xl bg-white/[0.04] border border-white/10 p-4 mb-5">
+        <p class="font-hud text-xs uppercase tracking-widest text-[#00f0ff] font-bold mb-2.5">Key Highlights</p>
+        <ul id="modalHighlightsList" class="space-y-2 text-xs sm:text-sm text-slate-300"></ul>
+      </div>
+
+      <div class="rounded-2xl bg-white/[0.03] border border-white/10 px-4 py-3 mb-6 flex items-center justify-between text-xs sm:text-sm">
+        <span class="text-slate-400 flex items-center gap-2">
+          <i data-lucide="tv" class="w-4 h-4 text-[#00f0ff]"></i> Platform
+        </span>
+        <span id="modalPlatform" class="font-semibold text-white">Facebook Gaming</span>
+      </div>
+
+      <div class="flex flex-col sm:flex-row gap-3">
+        <!-- EASY EDIT: Watch link is populated dynamically from each card's data-url attribute -->
+        <a id="modalWatchLink" href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-gradient-to-r from-[#00f0ff] to-[#8b5cf6] text-obsidian font-display font-extrabold text-xs tracking-wider shadow-glow-cyan hover:brightness-110 transition-all">
+          <i data-lucide="external-link" class="w-4 h-4"></i>
+          <span>WATCH NOW</span>
+        </a>
+        <button id="dismissModalBtn" type="button" class="px-5 py-3.5 rounded-xl cyber-glass border border-white/15 text-slate-300 hover:text-white font-display font-bold text-xs tracking-wider transition-colors">
+          CLOSE
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =======================================================================
+       CUSTOM TOAST NOTIFICATION (No browser alert())
+       ======================================================================= -->
+  <div id="toast" class="fixed bottom-5 right-5 z-[70] pointer-events-none opacity-0 translate-y-4 transition-all duration-300 max-w-sm">
+    <div class="cyber-glass rounded-2xl px-5 py-3.5 border border-[#00f0ff]/55 shadow-glow-cyan flex items-center gap-3">
+      <i data-lucide="check-circle-2" class="w-5 h-5 text-[#00f0ff] shrink-0"></i>
+      <span id="toastText" class="text-xs sm:text-sm font-semibold text-white">Done!</span>
+    </div>
+  </div>
+
+  <!-- =======================================================================
+       JAVASCRIPT: LUCIDE, FILTERING, MODAL, CLIPBOARD, LIVE BST CLOCK & FORM
+       ======================================================================= -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      try {
+        // Initialize Lucide Icons
+        if (window.lucide && typeof window.lucide.createIcons === 'function') {
+          window.lucide.createIcons();
+        }
+
+        /* -------------------------------------------------------------------
+           1. TOAST NOTIFICATION UTILITY
+           ------------------------------------------------------------------- */
+        const toastEl = document.getElementById('toast');
+        const toastTextEl = document.getElementById('toastText');
+        let toastTimer = null;
+
+        function showToast(message) {
+          toastTextEl.textContent = message;
+          toastEl.classList.remove('opacity-0', 'translate-y-4', 'pointer-events-none');
+          toastEl.classList.add('opacity-100', 'translate-y-0');
+
+          if (toastTimer) clearTimeout(toastTimer);
+          toastTimer = setTimeout(() => {
+            toastEl.classList.add('opacity-0', 'translate-y-4', 'pointer-events-none');
+            toastEl.classList.remove('opacity-100', 'translate-y-0');
+          }, 3200);
+        }
+
+        /* -------------------------------------------------------------------
+           2. iFRAME-SAFE CLIPBOARD COPY UTILITY
+           ------------------------------------------------------------------- */
+        function copyTextSafe(text, toastMessage) {
+          try {
+            const tempInput = document.createElement('textarea');
+            tempInput.value = text;
+            tempInput.setAttribute('readonly', '');
+            tempInput.style.position = 'fixed';
+            tempInput.style.left = '-9999px';
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            tempInput.setSelectionRange(0, 99999);
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+            showToast(toastMessage);
+          } catch (err) {
+            showToast(text);
+          }
+        }
+
+        // Copy @CyberCreation Handle Button in Hero HUD Card
+        const copyHandleBtn = document.getElementById('copyHandleBtn');
+        if (copyHandleBtn) {
+          copyHandleBtn.addEventListener('click', () => {
+            const handle = copyHandleBtn.getAttribute('data-handle') || '@CyberCreation';
+            copyTextSafe(handle, `Copied handle: ${handle}`);
+          });
+        }
+
+        // Copy Business Email Button in Contact Section
+        const copyEmailBtn = document.getElementById('copyEmailBtn');
+        const businessEmailText = document.getElementById('businessEmailText');
+        if (copyEmailBtn && businessEmailText) {
+          copyEmailBtn.addEventListener('click', () => {
+            const email = businessEmailText.textContent.trim();
+            copyTextSafe(email, `Email copied: ${email}`);
+          });
+        }
+
+        /* -------------------------------------------------------------------
+           3. MOBILE NAVIGATION MENU TOGGLE
+           ------------------------------------------------------------------- */
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const menuOpenIcon = document.getElementById('menuOpenIcon');
+        const menuCloseIcon = document.getElementById('menuCloseIcon');
+        const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+        function toggleMobileNav(open) {
+          if (open) {
+            mobileMenu.classList.remove('hidden');
+            menuOpenIcon.classList.add('hidden');
+            menuCloseIcon.classList.remove('hidden');
+            mobileMenuBtn.setAttribute('aria-expanded', 'true');
+          } else {
+            mobileMenu.classList.add('hidden');
+            menuOpenIcon.classList.remove('hidden');
+            menuCloseIcon.classList.add('hidden');
+            mobileMenuBtn.setAttribute('aria-expanded', 'false');
+          }
+        }
+
+        mobileMenuBtn.addEventListener('click', () => {
+          toggleMobileNav(mobileMenu.classList.contains('hidden'));
+        });
+
+        mobileLinks.forEach(link => {
+          link.addEventListener('click', () => toggleMobileNav(false));
+        });
+
+        /* -------------------------------------------------------------------
+           4. CONTENT GALLERY CATEGORY FILTERING
+           ------------------------------------------------------------------- */
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const contentCards = document.querySelectorAll('.content-card');
+
+        filterBtns.forEach(btn => {
+          btn.addEventListener('click', () => {
+            const filter = btn.getAttribute('data-filter');
+
+            filterBtns.forEach(b => {
+              b.classList.remove('active', 'bg-gradient-to-r', 'from-[#00f0ff]', 'to-[#8b5cf6]', 'text-obsidian', 'shadow-glow-cyan');
+              b.classList.add('cyber-glass', 'text-slate-300');
+            });
+
+            btn.classList.remove('cyber-glass', 'text-slate-300');
+            btn.classList.add('active', 'bg-gradient-to-r', 'from-[#00f0ff]', 'to-[#8b5cf6]', 'text-obsidian', 'shadow-glow-cyan');
+
+            contentCards.forEach(card => {
+              const cats = (card.getAttribute('data-categories') || '').split(' ');
+              const matches = filter === 'all' || cats.includes(filter);
+
+              if (matches) {
+                card.classList.remove('is-hidden');
+                card.style.opacity = '0';
+                card.style.transform = 'scale(0.96)';
+                requestAnimationFrame(() => {
+                  card.style.opacity = '1';
+                  card.style.transform = 'scale(1)';
+                });
+              } else {
+                card.classList.add('is-hidden');
+              }
+            });
+          });
+        });
+
+        /* -------------------------------------------------------------------
+           5. INTERACTIVE CONTENT PREVIEW MODAL
+           ------------------------------------------------------------------- */
+        const previewModal = document.getElementById('previewModal');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+        const dismissModalBtn = document.getElementById('dismissModalBtn');
+        const modalBadge = document.getElementById('modalBadge');
+        const modalDuration = document.getElementById('modalDuration');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalDesc = document.getElementById('modalDesc');
+        const modalHighlightsList = document.getElementById('modalHighlightsList');
+        const modalPlatform = document.getElementById('modalPlatform');
+        const modalWatchLink = document.getElementById('modalWatchLink');
+
+        function openModal(card) {
+          modalBadge.textContent = card.dataset.badge || 'Highlight';
+          modalDuration.textContent = card.dataset.duration || 'LIVE';
+          modalTitle.textContent = card.dataset.title || 'CYBER CREATION Highlight';
+          modalDesc.textContent = card.dataset.desc || '';
+          modalPlatform.textContent = card.dataset.platform || 'Facebook Gaming / Kick';
+          modalWatchLink.setAttribute('href', card.dataset.url || '#contact');
+
+          // Populate highlight bullets safely
+          modalHighlightsList.innerHTML = '';
+          const items = (card.dataset.highlights || '').split('|').filter(Boolean);
+          items.forEach(text => {
+            const li = document.createElement('li');
+            li.className = 'flex items-start gap-2';
+            const dot = document.createElement('span');
+            dot.className = 'w-1.5 h-1.5 rounded-full bg-[#00f0ff] mt-1.5 shrink-0';
+            const span = document.createElement('span');
+            span.textContent = text;
+            li.appendChild(dot);
+            li.appendChild(span);
+            modalHighlightsList.appendChild(li);
+          });
+
+          previewModal.classList.remove('hidden');
+          previewModal.classList.add('flex');
+          document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+          previewModal.classList.add('hidden');
+          previewModal.classList.remove('flex');
+          document.body.style.overflow = '';
+        }
+
+        contentCards.forEach(card => {
+          card.addEventListener('click', () => openModal(card));
+        });
+
+        closeModalBtn.addEventListener('click', closeModal);
+        dismissModalBtn.addEventListener('click', closeModal);
+
+        previewModal.addEventListener('click', (e) => {
+          if (e.target === previewModal) closeModal();
+        });
+
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape' && !previewModal.classList.contains('hidden')) {
+            closeModal();
+          }
+        });
+
+        /* -------------------------------------------------------------------
+           6. REAL-TIME BANGLADESH STANDARD TIME (BST / Asia/Dhaka) CLOCK
+           ------------------------------------------------------------------- */
+        const liveBstClockEl = document.getElementById('liveBstClock');
+
+        function updateBstClock() {
+          if (!liveBstClockEl) return;
+          try {
+            const now = new Date();
+            const formatted = new Intl.DateTimeFormat('en-US', {
+              timeZone: 'Asia/Dhaka',
+              hour: '2-digit',
+              minute: '2-digit',
+              second: '2-digit',
+              hour12: true
+            }).format(now);
+            liveBstClockEl.textContent = formatted;
+          } catch (e) {
+            liveBstClockEl.textContent = 'GMT+6 (BST)';
+          }
+        }
+        updateBstClock();
+        setInterval(updateBstClock, 1000);
+
+        /* -------------------------------------------------------------------
+           7. CONTACT / SPONSORSHIP FORM VALIDATION
+           ------------------------------------------------------------------- */
+        const contactForm = document.getElementById('contactForm');
+        const formSuccessState = document.getElementById('formSuccessState');
+        const formSuccessSummary = document.getElementById('formSuccessSummary');
+        const sendAnotherBtn = document.getElementById('sendAnotherBtn');
+
+        const senderName = document.getElementById('senderName');
+        const senderEmail = document.getElementById('senderEmail');
+        const inquiryType = document.getElementById('inquiryType');
+        const senderMessage = document.getElementById('senderMessage');
+
+        const nameError = document.getElementById('nameError');
+        const emailError = document.getElementById('emailError');
+        const messageError = document.getElementById('messageError');
+
+        function setFieldError(inputEl, errorEl, msg) {
+          if (msg) {
+            errorEl.textContent = msg;
+            errorEl.classList.remove('hidden');
+            inputEl.classList.add('border-rose-500');
+          } else {
+            errorEl.textContent = '';
+            errorEl.classList.add('hidden');
+            inputEl.classList.remove('border-rose-500');
+          }
+        }
+
+        contactForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          let isValid = true;
+
+          const nameVal = senderName.value.trim();
+          const emailVal = senderEmail.value.trim();
+          const typeVal = inquiryType.value;
+          const msgVal = senderMessage.value.trim();
+
+          if (nameVal.length < 2) {
+            setFieldError(senderName, nameError, 'Please enter your name (at least 2 characters).');
+            isValid = false;
+          } else {
+            setFieldError(senderName, nameError, '');
+          }
+
+          const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (!emailPattern.test(emailVal)) {
+            setFieldError(senderEmail, emailError, 'Please enter a valid email address.');
+            isValid = false;
+          } else {
+            setFieldError(senderEmail, emailError, '');
+          }
+
+          if (msgVal.length < 10) {
+            setFieldError(senderMessage, messageError, 'Please write a short message (at least 10 characters).');
+            isValid = false;
+          } else {
+            setFieldError(senderMessage, messageError, '');
+          }
+
+          if (!isValid) return;
+
+          formSuccessSummary.textContent = `Thanks, ${nameVal}! Your "${typeVal}" inquiry for CYBER CREATION has been logged. We'll follow up at ${emailVal}.`;
+          contactForm.classList.add('hidden');
+          formSuccessState.classList.remove('hidden');
+          showToast('Message sent to CYBER CREATION!');
+        });
+
+        sendAnotherBtn.addEventListener('click', () => {
+          contactForm.reset();
+          formSuccessState.classList.add('hidden');
+          contactForm.classList.remove('hidden');
+        });
+
+        /* -------------------------------------------------------------------
+           8. SCROLL REVEAL & ACTIVE NAV SCROLL-SPY
+           ------------------------------------------------------------------- */
+        const revealEls = document.querySelectorAll('.reveal');
+        if ('IntersectionObserver' in window) {
+          const observer = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                obs.unobserve(entry.target);
+              }
+            });
+          }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+
+          revealEls.forEach(el => observer.observe(el));
+        } else {
+          revealEls.forEach(el => el.classList.add('visible'));
+        }
+
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        window.addEventListener('scroll', () => {
+          let currentId = 'home';
+          const scrollPos = window.scrollY + 135;
+
+          sections.forEach(section => {
+            if (scrollPos >= section.offsetTop) {
+              currentId = section.getAttribute('id');
+            }
+          });
+
+          navLinks.forEach(link => {
+            const target = link.getAttribute('href').slice(1);
+            if (target === currentId) {
+              link.classList.add('text-[#00f0ff]', 'bg-white/5');
+              link.classList.remove('text-slate-300');
+            } else {
+              link.classList.remove('text-[#00f0ff]', 'bg-white/5');
+              link.classList.add('text-slate-300');
+            }
+          });
+        }, { passive: true });
+
+      } catch (err) {
+        console.error('CYBER CREATION Hub initialization error:', err);
+      }
+    });
+  </script>
+</body>
+</html>
