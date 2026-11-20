@@ -185,6 +185,7 @@
           <a href="#home" class="nav-link px-3.5 py-2 rounded-xl text-sm font-semibold text-slate-300 hover:text-[#00f0ff] hover:bg-white/5 transition-all">Home</a>
           <a href="#history" class="nav-link px-3.5 py-2 rounded-xl text-sm font-semibold text-slate-300 hover:text-[#00f0ff] hover:bg-white/5 transition-all">History</a>
           <a href="#content" class="nav-link px-3.5 py-2 rounded-xl text-sm font-semibold text-slate-300 hover:text-[#00f0ff] hover:bg-white/5 transition-all">Content</a>
+          <a href="#clips" class="nav-link px-3.5 py-2 rounded-xl text-sm font-semibold text-slate-300 hover:text-[#00f0ff] hover:bg-white/5 transition-all">Clips</a>
           <a href="#setup" class="nav-link px-3.5 py-2 rounded-xl text-sm font-semibold text-slate-300 hover:text-[#00f0ff] hover:bg-white/5 transition-all">My Stuff</a>
           <a href="#schedule" class="nav-link px-3.5 py-2 rounded-xl text-sm font-semibold text-slate-300 hover:text-[#00f0ff] hover:bg-white/5 transition-all">Schedule</a>
           <a href="#contact" class="nav-link px-3.5 py-2 rounded-xl text-sm font-semibold text-slate-300 hover:text-[#00f0ff] hover:bg-white/5 transition-all">Contact</a>
@@ -223,6 +224,10 @@
         </a>
         <a href="#content" class="mobile-nav-link px-4 py-3 rounded-xl text-sm font-semibold text-slate-200 hover:bg-[#00f0ff]/10 hover:text-[#00f0ff] transition-colors flex items-center justify-between">
           <span class="flex items-center gap-3"><i data-lucide="clapperboard" class="w-4 h-4 text-[#00f0ff]"></i> Content</span>
+          <i data-lucide="chevron-right" class="w-4 h-4 text-slate-500"></i>
+        </a>
+        <a href="#clips" class="mobile-nav-link px-4 py-3 rounded-xl text-sm font-semibold text-slate-200 hover:bg-[#00f0ff]/10 hover:text-[#00f0ff] transition-colors flex items-center justify-between">
+          <span class="flex items-center gap-3"><i data-lucide="gamepad-2" class="w-4 h-4 text-[#ff2a6d]"></i> Clips</span>
           <i data-lucide="chevron-right" class="w-4 h-4 text-slate-500"></i>
         </a>
         <a href="#setup" class="mobile-nav-link px-4 py-3 rounded-xl text-sm font-semibold text-slate-200 hover:bg-[#00f0ff]/10 hover:text-[#00f0ff] transition-colors flex items-center justify-between">
@@ -799,6 +804,37 @@
           </article>
 
         </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         GAMING CLIPS SECTION
+         EASY EDIT: add your YouTube links in the CLIPS list in the JavaScript at the bottom of this file
+         ===================================================================== -->
+    <section id="clips" class="py-16 sm:py-24 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-12 reveal">
+          <div>
+            <span class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#ff2a6d]/15 border border-[#ff2a6d]/40 text-rose-300 text-xs font-display font-semibold uppercase tracking-widest mb-3">
+              <i data-lucide="gamepad-2" class="w-3.5 h-3.5"></i> Gameplay Vault
+            </span>
+            <h2 class="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl text-white tracking-tight">
+              Gaming <span class="text-neon-gradient">Clips</span>
+            </h2>
+            <p class="text-slate-400 mt-2 max-w-xl text-sm sm:text-base">
+              Best moments from my streams and gameplay. Tap any clip to play it right here.
+            </p>
+          </div>
+          <a href="https://www.youtube.com/@leoplayofficial" target="_blank" rel="noopener noreferrer"
+            class="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl cyber-glass border border-[#ff2a6d]/45 text-slate-100 font-display font-bold text-xs tracking-wider hover:bg-[#ff2a6d]/15 transition-all self-start lg:self-auto">
+            <i data-lucide="youtube" class="w-4 h-4 text-[#ff2a6d]"></i>
+            <span>MORE ON YOUTUBE</span>
+          </a>
+        </div>
+
+        <div id="clipsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 reveal"></div>
+
       </div>
     </section>
 
@@ -1779,6 +1815,75 @@
             }
           });
         }, { passive: true });
+
+
+        /* -------------------------------------------------------------------
+           GAMING CLIPS: paste a YouTube link (watch, youtu.be, shorts) in url
+           Leave url empty to show a "coming soon" slot.
+           ------------------------------------------------------------------- */
+        const CLIPS = [
+          { title: 'Your best Paladins clip', game: 'Paladins', url: '' },
+          { title: 'GTA V RP highlight', game: 'GTA V FiveM RP', url: '' },
+          { title: 'Funniest stream moment', game: 'Live Stream', url: '' }
+        ];
+
+        const clipsGrid = document.getElementById('clipsGrid');
+
+        function ytId(u) {
+          const str = String(u || '').trim();
+          const m = str.match(/(?:youtu\.be\/|v=|shorts\/|embed\/)([A-Za-z0-9_-]{11})/);
+          if (m) return m[1];
+          return /^[A-Za-z0-9_-]{11}$/.test(str) ? str : '';
+        }
+
+        function esc(t) {
+          const d = document.createElement('div');
+          d.textContent = t;
+          return d.innerHTML;
+        }
+
+        if (clipsGrid) {
+          CLIPS.forEach(clip => {
+            const id = ytId(clip.url);
+            const card = document.createElement('article');
+            card.className = 'cyber-glass cyber-glass-interactive rounded-3xl overflow-hidden flex flex-col group shadow-glass-card';
+
+            const thumb = id
+              ? `<img src="https://i.ytimg.com/vi/${id}/hqdefault.jpg" alt="${esc(clip.title)}" loading="lazy" class="absolute inset-0 w-full h-full object-cover" />
+                 <div class="absolute inset-0 bg-black/35 group-hover:bg-black/15 transition-colors"></div>`
+              : `<div class="absolute inset-0 bg-gradient-to-br from-indigo-950 via-[#0d1328] to-rose-950"></div>
+                 <div class="absolute inset-0 cyber-grid-bg opacity-75"></div>`;
+
+            const label = id ? '' : '<span class="absolute bottom-3.5 right-3.5 px-2.5 py-1 rounded-lg bg-black/75 border border-white/10 text-violet-200 text-[11px] font-mono">COMING SOON</span>';
+
+            card.innerHTML = `
+              <div class="clip-media relative aspect-video overflow-hidden ${id ? 'cursor-pointer' : ''}">
+                ${thumb}
+                <div class="absolute inset-0 flex items-center justify-center">
+                  <div class="w-16 h-16 rounded-2xl bg-black/55 backdrop-blur-md border border-[#ff2a6d]/55 flex items-center justify-center text-rose-300 group-hover:scale-110 group-hover:bg-[#ff2a6d] group-hover:text-white transition-all shadow-glow-crimson">
+                    <svg class="w-7 h-7 ml-0.5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                  </div>
+                </div>
+                <span class="absolute top-3.5 left-3.5 px-3 py-1 rounded-lg bg-[#ff2a6d]/20 backdrop-blur-md border border-[#ff2a6d]/45 text-rose-200 text-[11px] font-display font-bold uppercase tracking-wider">${esc(clip.game)}</span>
+                ${label}
+              </div>
+              <div class="p-5">
+                <h3 class="font-display font-bold text-base text-white group-hover:text-rose-300 transition-colors">${esc(clip.title)}</h3>
+              </div>`;
+
+            const media = card.querySelector('.clip-media');
+            media.addEventListener('click', () => {
+              if (!id) {
+                showToast('Clip coming soon!');
+                return;
+              }
+              media.classList.remove('cursor-pointer');
+              media.innerHTML = `<iframe class="absolute inset-0 w-full h-full" src="https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0" title="${esc(clip.title)}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+            });
+
+            clipsGrid.appendChild(card);
+          });
+        }
 
       } catch (err) {
         console.error('CYBER CREATION Hub initialization error:', err);
